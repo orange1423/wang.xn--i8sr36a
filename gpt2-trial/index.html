@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.th.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/fancybox/jquery.fancybox.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xn--i8sr36a.wang","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="最近在玩 OpenAI 的 GPT-2。它是一种大型的基于 Transformer 的语言模型。OpenAI使用 15 亿参数和 800 万篇网络文本对其进行训练。训练后可以“ 根据文本中的所有先前单词，预测下一个单词”。它通过提示的小段文字来续写大段连贯文本。OpenAI 认为它生成的文本具有足够的欺骗性，可以“以假乱真”，以担心滥用为由迟迟不肯放出全部代码和模型，气得网友嘲讽其为 CloseA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="来用 AI 写故事哇">
+<meta property="og:url" content="https://橘子.wang/gpt2-trial/">
+<meta property="og:site_name" content="橘子的小站">
+<meta property="og:description" content="最近在玩 OpenAI 的 GPT-2。它是一种大型的基于 Transformer 的语言模型。OpenAI使用 15 亿参数和 800 万篇网络文本对其进行训练。训练后可以“ 根据文本中的所有先前单词，预测下一个单词”。它通过提示的小段文字来续写大段连贯文本。OpenAI 认为它生成的文本具有足够的欺骗性，可以“以假乱真”，以担心滥用为由迟迟不肯放出全部代码和模型，气得网友嘲讽其为 CloseA">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xn--i8sr36a.wang/gpt2-trial/%E8%BE%93%E5%85%A5%E6%B3%95.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/gpt2-trial/GPT2%E7%BB%93%E6%9E%841.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/gpt2-trial/GPT2%E7%BB%93%E6%9E%842.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/gpt2-trial/GPT2%E7%BB%93%E6%9E%843.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/gpt2-trial/GPT2%E7%BB%93%E6%9E%844.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/gpt2-trial/GPT2%E7%BB%93%E6%9E%845.png">
+<meta property="article:published_time" content="2020-03-15T06:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-29T10:56:40.453Z">
+<meta property="article:author" content="Orange">
+<meta property="article:tag" content="AI技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xn--i8sr36a.wang/gpt2-trial/%E8%BE%93%E5%85%A5%E6%B3%95.gif">
+
+<link rel="canonical" href="https://橘子.wang/gpt2-trial/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>来用 AI 写故事哇 | 橘子的小站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="橘子的小站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">橘子的小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">橘子咕咕的地方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-笔记">
+
+    <a href="https://笔记.橘子.wang/" rel="noopener" target="_blank"><i class="fas fa-book fa-fw"></i>笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-实验室">
+
+    <a href="/laboratory" rel="section"><i class="fa fa-flask fa-fw"></i>实验室</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://橘子.wang/gpt2-trial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.png">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子的小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          来用 AI 写故事哇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-15 14:00:00" itemprop="dateCreated datePublished" datetime="2020-03-15T14:00:00+08:00">2020-03-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 18:56:40" itemprop="dateModified" datetime="2021-01-29T18:56:40+08:00">2021-01-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/gpt2-trial/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/gpt2-trial/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近在玩 OpenAI 的 <a target="_blank" rel="noopener" href="https://openai.com/blog/better-language-models/">GPT-2</a>。它是一种大型的基于 Transformer 的语言模型。OpenAI使用 15 亿参数和 800 万篇网络文本对其进行训练。训练后可以“ 根据文本中的所有先前单词，预测下一个单词”。它通过提示的小段文字来续写大段连贯文本。OpenAI 认为它生成的文本具有足够的欺骗性，可以“以假乱真”，以担心滥用为由迟迟不肯放出全部代码和模型，气得网友嘲讽其为 CloseAI 。</p>
+<p>(2020.6.25 更新，OpenAI 的 15 亿参数模型已放出，已经在橘子的实验室整理为 Colab 笔记本。)</p>
+<p>不过，目前 OpenAI 还是放出了部分代码和 7.74 亿参数的较小预训练模型。也有各路大佬复刻了 15 亿参数的<a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1esbpDOorf7DQJV8GXWON24c-EQrSKOit">OpenGPT-2</a>，以及支持中文的 <a target="_blank" rel="noopener" href="https://github.com/Morizeyao/GPT2-Chinese">GPT2-Chinese</a>、带有15亿参数中文预训练模型的 <a target="_blank" rel="noopener" href="https://github.com/imcaspar/gpt2-ml">GPT2-ml</a>。虽然效果或许没有 OpenAI 的 15 亿参数模型好，但也够我们玩一会了。想体验的可前往 <a href="/laboratory/gpt-2">橘子的实验室</a>。</p>
+<a id="more"></a>
+
+<h2 id="GPT-2-有多强？"><a href="#GPT-2-有多强？" class="headerlink" title="GPT-2 有多强？"></a>GPT-2 有多强？</h2><p>下面是 OpenAI 在其官网发布的 15 亿参数模型输出示例：</p>
+<h4 id="人工编写："><a href="#人工编写：" class="headerlink" title="人工编写："></a>人工编写：</h4><p><em>In a shocking finding, scientist discovered a herd of unicorns living in a remote, previously unexplored valley, in the Andes Mountains. Even more surprising to the researchers was the fact that the unicorns spoke perfect English.</em></p>
+<p><em>在一个惊人的发现中，科学家找到了一群独角兽，它们生活在安第斯山脉一个偏远的，以前未被开发的山谷中。更让研究人员惊讶的是，独角兽会说完美的英语。</em></p>
+<h4 id="AI续写："><a href="#AI续写：" class="headerlink" title="AI续写："></a>AI续写：</h4><p><em>The scientist named the population, after their distinctive horn, Ovid’s Unicorn. These four-horned, silver-white unicorns were previously unknown to science.</em></p>
+<p><em>Now, after almost two centuries, the mystery of what sparked this odd phenomenon is finally solved.</em></p>
+<p><em>Dr. Jorge Pérez, an evolutionary biologist from the University of La Paz, and several companions, were exploring the Andes Mountains when they found a small valley, with no other animals or humans. Pérez noticed that the valley had what appeared to be a natural fountain, surrounded by two peaks of rock and silver snow.</em></p>
+<p><em>Pérez and the others then ventured further into the valley. “By the time we reached the top of one peak, the water looked blue, with some crystals on top,” said Pérez.</em></p>
+<p><em>Pérez and his friends were astonished to see the unicorn herd. These creatures could be seen from the air without having to move too much to see them – they were so close they could touch their horns.<br>While examining these bizarre creatures the scientists discovered that the creatures also spoke some fairly regular English. Pérez stated, “We can see, for example, that they have a common ‘language,’ something like a dialect or dialectic.”</em></p>
+<p><em>Dr. Pérez believes that the unicorns may have originated in Argentina, where the animals were believed to be descendants of a lost race of people who lived there before the arrival of humans in those parts of South America.<br>While their origins are still unclear, some believe that perhaps the creatures were created when a human and a unicorn met each other in a time before human civilization. According to Pérez, “In South America, such incidents seem to be quite common.”</em></p>
+<p><em>However, Pérez also pointed out that it is likely that the only way of knowing for sure if unicorns are indeed the descendants of a lost alien race is through DNA. “But they seem to be able to communicate in English quite well, which I believe is a sign of evolution, or at least a change in social organization,” said the scientist.</em></p>
+<p><em>这位科学家以其独特的角，将这个种群命名为 Ovid’s Unicorn 。这种四角银白色独角兽以前是科学界所不曾了解的。</em></p>
+<p><em>现在，在将近两个世纪之后，终于解释了引发这种奇怪现象的谜团。</em></p>
+<p><em>拉巴斯大学的进化生物学家豪尔赫·佩雷斯（JorgePérez）博士和几位同伴在安第斯山脉发现了一个没有其他动物或人类的小山谷。佩雷斯注意到该山谷似乎是一个天然喷泉，周围环绕着两个岩石和银色雪峰。</em></p>
+<p><em>然后佩雷斯和其他人冒险进了山谷。佩雷斯说：“当我们到达一个山峰的顶部时，水看起来是蓝色的，上面还有一些晶体。”</em></p>
+<p><em>佩雷斯和他的朋友们惊讶地看到了独角兽群。他们可以隔空看到这些生物，而不必尝试靠近就可以看到它们——它们太近了，他们甚至可以触摸它们的角。</em></p>
+<p><em>在检查这些怪异的生物时，科学家发现这些生物也讲一些相当普通的英语。佩雷斯说：“例如，我们可以看到它们具有共同的“语言”，例如方言或辩证法。”</em></p>
+<p><em>佩雷斯博士认为，独角兽可能起源于阿根廷，在那里人们相信这些动物是在人类到达南美这些地区之前居住在那里的一群迷失种族的后代。</em></p>
+<p><em>尽管其起源尚不清楚，但有人认为，也许这些生物是人类和独角兽在人类文明诞生之前相遇而造的。佩雷斯说：“在南美，此类事件似乎很普遍。”</em></p>
+<p><em>但是，佩雷斯还指出，要确定独角兽是否确实是迷失的人种的后裔，唯一可能的方法就是通过检测DNA。这位科学家说：“但是他们似乎能够用英语很好地交流，我相信这是进化的迹象，或者至少是社会组织的变化。”</em></p>
+<p><strong>？？？从未见过如此一本正经的胡说八道，写得跟真的似的，难怪OpenAI担心它被滥用…</strong></p>
+<h2 id="GPT-2-生成文本实验"><a href="#GPT-2-生成文本实验" class="headerlink" title="GPT-2 生成文本实验"></a>GPT-2 生成文本实验</h2><p><em>这里是橘子的实验结果。如果想尝试可以前往 <a href="https://橘子.wang/%E5%AE%9E%E9%AA%8C%E5%AE%A4/gpt-2">实验室</a> 页面哦。</em></p>
+<h3 id="OpenAI官方-7-74亿参数-英语"><a href="#OpenAI官方-7-74亿参数-英语" class="headerlink" title="OpenAI官方 7.74亿参数 英语"></a>OpenAI官方 7.74亿参数 英语</h3><h4 id="人工编写：-1"><a href="#人工编写：-1" class="headerlink" title="人工编写："></a>人工编写：</h4><p><em>My time was my own after the afternoon board, Saturdays, and I was accustomed to put it in on a little sail-boat on the bay.</em></p>
+<h4 id="AI续写：-1"><a href="#AI续写：-1" class="headerlink" title="AI续写："></a>AI续写：</h4><p><em>Here, however, I hoped that the water heave would not throw back the sails and prevent my reaching the island. In this I was both disappointed and cautious, leaving out nearly half a mile from the windward side.</em></p>
+<p><em>It failed to take place, however, and here it is that I reached the island. About three o’clock sharp I was completely startled and alarmed by crashing and gurgling noises; and in dismay and despair I turned to my friends and crew and said,</em></p>
+<p><em>“What is the matter? has a mast-head been overthrown?” “That’s the rule, sir: the water that heave up sometimes keeps the sails down. There was no mast break last night, only some greasey focus from the oars. But the waves have got drunk smooth down on top of the island now, and it looks as if the island was about to split.” “Well!” said I, “if I had so much as known what it was about to do, I of course would have given up, but what you say is true. Perhaps it will come upon us soon, and if my boat got ashore we never could have spared ourselves from dashing the gills of a fitfully bobbing, several inches high, to our craft; but we don’t know what it will grow to—and probably it will bring the island nearer.”</em></p>
+<p>_These words interested us; we understand the danger, and while it is not dear to see what groans and groans the Guana Islands will throw up, the thing IS frightfully disturbing, and its action must be very highly commended by those desirous to Avoid troubling mischief in capture aware of its situation at our borders. We though it might prove a waking nightmare and a successive card game, did we spook it any more than by the rustle of our clothes, and the lightening of the load aunts, and that sense of dread which increases as we consider and shudder at the idea that in any shape or small distance the only life that human beings can possibly possess is going to be destroyed to haul ourselves by our clothes!</p>
+<h3 id="GPT2-Chinese-散文模型-中文"><a href="#GPT2-Chinese-散文模型-中文" class="headerlink" title="GPT2-Chinese 散文模型 中文"></a>GPT2-Chinese 散文模型 中文</h3><h4 id="人工编写：-2"><a href="#人工编写：-2" class="headerlink" title="人工编写："></a>人工编写：</h4><p><em>古人不见今时月，今月曾经照古人。</em></p>
+<h4 id="AI续写：-2"><a href="#AI续写：-2" class="headerlink" title="AI续写："></a>AI续写：</h4><p><em>我走在古道上，回头望，只见月色如勾，月光如玉。古道西端，月华如洗，古道西下，古道西风瘦马鸣，不知几时梦里未央，我已分辨不出月色如霜，但至少月华如霜的夜晚，我望月，却只看见有个老人斑驳起来，佝偻在马路上，指着一横一竖起悲悲悲凄惨惨戚戚的隐曲。</em></p>
+<p>_我走在古道、老树下，夜色渐浓，月光透过树梢洒下一地的银光，清辉洒在地上，清辉洒在人身上，仿佛在寻找昨天的辉煌_。</p>
+<p><em>月光下面她均好袅娜的披着银辉，她静静地站在那里，她静静地站在那里，我知道，她在等待着谁，她一定在等待谁。</em></p>
+<p><em>她默默地走到了我的面前，静静地站在那里，一脸灿烂，安详，安详。此刻，我想起了她，她在遥远的地方，她一定在她身旁。</em></p>
+<p><em>她静静地躺在那里，她微笑着闭上了眼睛，安详地闭上了眼睛。此刻，我知道，她正坐在那里与我同样地看着我，我也在她的眼前。</em></p>
+<p><em>秋日的余辉已染红了他的白发。</em></p>
+<p><em>她静静地站在远方，她静静地望着她，静静地望着她。她静静地望着她，她也深情地望着他。</em></p>
+<p><em>她也许只是静静地看着，也许只有这时她才能读懂他的话。也许只有静静地望着，静静地望着，望着，也许只有静静地看着，静静地望着，静静地看着，看着。他的心一下子就跳了起来，她在他的眼前晃啊晃。</em></p>
+<h3 id="OpenGPT-2-15亿参数-英语"><a href="#OpenGPT-2-15亿参数-英语" class="headerlink" title="OpenGPT-2 15亿参数 英语"></a>OpenGPT-2 15亿参数 英语</h3><h4 id="人工编写：-3"><a href="#人工编写：-3" class="headerlink" title="人工编写："></a>人工编写：</h4><p><em>I want to live as a child in the Neverland.</em></p>
+<h4 id="AI生成："><a href="#AI生成：" class="headerlink" title="AI生成："></a>AI生成：</h4><p><em>The kids down there have perfect teeth and don’t know their proper pronouns. They’re so good-looking and adorable. That could be me. How’s that?</em></p>
+<p><em>I love Lily and that version of Narnia. How’s that?</em></p>
+<p><em>I want to be positive. I want to take my magic and my power and give them to the world and inspire people. That could be me. How’s that?</em></p>
+<p><em>I want to see people growing up in the real world. This fantasy isn’t a magic place. People are the same, same people everywhere, and that could be me. How’s that?</em></p>
+<p><em>I want to love every creature on the planet, but not a witch. I can’t. How’s that?</em></p>
+<p><em>I want to pretend that I was once a pirate. I would have loved to be a pirate. How’s that?</em></p>
+<p><em>I want to be able to make my own babies. That could be me. How’s that?</em></p>
+<p><em>I want to be a fighter. I want to kick some ass, and being a fighter is part of me. That could be me. How’s that?</em></p>
+<p><em>I want to live in a beautiful and perfect world. That could be me. How’s that?</em></p>
+<p><em>I want to have all the abilities and powers of a Dark Lord. That could be me. How’s that?</em></p>
+<p><em>I want to be a kid. I know I could always be a kid, and I want to take it back. That could be me. How’s that?</em></p>
+<p><em>I want to be a god. That could be me. How’s that?</em></p>
+<p><em>I want to be a hero. Maybe that’s going to be me someday. How’s that?</em></p>
+<p><em>I want to be the best at everything, and maybe I am that right now. That could be me. How’s that?</em></p>
+<p><em>I want to have my ship be a unicorn. That could be me. How’s that?</em></p>
+<p><em>I want to have a little bit of magic in every moment, but I also want to make it go back to the real world. That could be me. How’s that?</em></p>
+<p><em>I want to break the world. That could be me. How’s that?</em></p>
+<p><em>I want to not ask my questions. That could be me. How’s that?</em></p>
+<p><em>I want to believe that I can never lose my skills. That they’re fine the way they are, and I can even keep up. That could be me. How’s that?</em></p>
+<p><em>I want to hurt people. That could be me. How’s that?</em></p>
+<p><em>I want to have a timeless life. That could be me. How’s that?</em></p>
+<p><em>I want to be taken from Neverland. That could be me. How’s that?</em></p>
+<p><em>I want to be a true hero. That could be me. How’s that?</em></p>
+<p><em>I want to be a queen. That could be me. How’s that?</em></p>
+<p><em>I want to live in a mirror that looks at the real world. That could be me. How’s that?</em></p>
+<p><em>I want to be connected to everything. That could be me. How’s that?</em></p>
+<p><em>I want to be with everyone. That could be me. How’s that?</em></p>
+<p><em>I want to be a good example to kids. That could be me. How’s that?</em></p>
+<p><em>I want to be the beautiful thing. That could be me. How’s that?</em></p>
+<p><em>I want to be good at everything I do. That could be me. How’s that?</em></p>
+<p><em>I want to be everything. I could be me. How’s that?</em></p>
+<p><em>When I got to Neverland, it felt pure to me. It felt magical. I have a vision of the perfect life, and there’s always an art to manifesting that, but I don’t ever fully know what will be. I think there are actually four possibilities for me.</em></p>
+<p><em>I’m going to ask a question. I’m going to be silent. I love how that sounds. That is the ultimate question of life.</em></p>
+<p><em>Let me know what your answer is.</em></p>
+<p><em>Answer? A smile.</em></p>
+<h3 id="GPT2-ml-15亿参数-中文"><a href="#GPT2-ml-15亿参数-中文" class="headerlink" title="GPT2-ml 15亿参数 中文"></a>GPT2-ml 15亿参数 中文</h3><h4 id="人工编写：-4"><a href="#人工编写：-4" class="headerlink" title="人工编写："></a>人工编写：</h4><p><em>科学家在一个人迹罕至的山谷中发现了一群独角兽，它们能说流利的中文。</em></p>
+<h4 id="AI续写"><a href="#AI续写" class="headerlink" title="AI续写"></a>AI续写</h4><p><em>科学家得出结论：这些独角兽可能是人类的祖先。通过对它们的dna分析，科学家 发现了它们的dna序列。独角兽生活在非洲索马里，经常在人的食物里下一粒肉。独角兽都是食肉目动物，因为只有食肉目动物才会保留大脑。约翰·霍普金 斯大学的卡夫卡博士在一篇论文中指出。但是，它们的非洲基因主要来自人类，但它们还有所不同。每年，这些可能出现在世界各地的独角兽大约可以延长至30亿年，而为了生存，一批批濒临灭绝的动物化石正在面临着灭绝的威胁。神秘物种：人类和独角兽之间的奇怪关系，从一个孤零零的动物园开始！它们可能很快就重现世界，而大部分的发现过程甚至都没有发生。人类和独角兽之间的奇怪关系，从一个孤零零的动物园开始！这是国际自然保护联盟发表的一份最新报告 ，宣称人类和独角兽之间的关系已经从极限运动，变成了生存竞赛。这个地球上几乎没有生物繁衍的能力，它们正面临灭绝的威胁。研究人员指出，在最新的研究中，他们发现了人类和独角兽之间一种基因突变大脑基因突变。这种突变可能是由dna和其他基因相互作用的结果。也就是说，造成这种基因突变的基因不是今天人类和其他生物基因中决定性的突变，而是早在古人类时期就已经存在了。当然，研究成果并不完全准确，却足以引起科学家的注意，因为在过去的四五十年中，科学家就发现了这一基因突变，此时科学家就已经确认了这个突变是多么重要，每一只独角兽都无法逃脱灭绝的命运。</em></p>
+<h2 id="关于-GPT-2"><a href="#关于-GPT-2" class="headerlink" title="关于 GPT-2"></a>关于 GPT-2</h2><p>_以下为科普性质而非技术研究性质，如有不正确的地方请大佬指正_。</p>
+<p>GPT-2 是基于 Transformer 的大型语言模型。与上一代模型GPT相比，它拥有10倍的参数和10倍的数据量。该模型不但可以生成文本的连贯段落，而且无需特殊训练就可以完成简单的阅读理解，翻译，问答和文本摘要。</p>
+<p>就像我们带联想功能的输入法一样，GPT-2 预测下一个单词。</p>
+<p><img src="%E8%BE%93%E5%85%A5%E6%B3%95.gif"></p>
+<p>跟输入法不同的是，GPT-2 不是仅通过前一个字或词来预测，而是通过前面全文来预测。而且它具有巨大的数据集（大小为 40GB 的 800 万篇网页）。</p>
+<p>GPT-2 将会为词表里的每个词计算一个概率，并选择概率最大（或从前几个中选取）的词作为输出。 它先将用户输入文本作为模型输入，每个单词产生后，会加在单词序列（文本）的最后，并将新序列作为模型的输入。这种机制叫做 自回归 （auto-regression） 。模型通过不断自回归，最终将输出一篇文章。</p>
+<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p>GPT-2 使用 Transformers 进行语言建模。 Transformer 是一个带有自注意力（ Self-Attention ）机制的自然语言模型。它由编码器（ Encoder ）、解码器（ Decoder ）堆叠而成。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/gpt2-trial/GPT2%E7%BB%93%E6%9E%841.png"></p>
+<p><em>Transformer 结构，图片引用自 <a target="_blank" rel="noopener" href="https://jalammar.github.io/illustrated-transformer/">Jay Alammar : The Illustrated Transformer</a></em></p>
+<p>在论文 「<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1801.10198.pdf">Generating Wikipedia by Summarizing Long Sequences</a>」 中，提出了仅用 Transformer Decoder 构建语言模型。该模型通过去掉了 Encoder-Decoder Attention 层的 Decoder 堆叠而成。GPT-2 与之相似，越大的 GPT-2 模型需要的 Decoder 越多。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/gpt2-trial/GPT2%E7%BB%93%E6%9E%842.png"></p>
+<p><em>Transformer-Decoder 模型结构，图片引用自 <a target="_blank" rel="noopener" href="https://jalammar.github.io/illustrated-gpt2/">Jay Alammar : The Illustrated GPT-2</a></em></p>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/gpt2-trial/GPT2%E7%BB%93%E6%9E%843.png"></p>
+<p><em>GPT-2 结构，图片引用自 <a target="_blank" rel="noopener" href="https://jalammar.github.io/illustrated-gpt2/">Jay Alammar : The Illustrated GPT-2</a></em></p>
+<p>Decoder 也分为 自注意力层（ Masked Self-Attention ）和 前馈神经网络（ Feed-Forward Neural Network ）两部分，其中 自注意力 负责在处理单词时关注序列中所有单词，对每个单词在语段中的相关度进行评分。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/gpt2-trial/GPT2%E7%BB%93%E6%9E%844.png"></p>
+<p><em>Decoder 结构 和 自注意力机制 的应用，图片引用自 <a target="_blank" rel="noopener" href="https://jalammar.github.io/illustrated-gpt2/">Jay Alammar : The Illustrated GPT-2</a></em></p>
+<h3 id="剩下还能再理解的一点点东西"><a href="#剩下还能再理解的一点点东西" class="headerlink" title="剩下还能再理解的一点点东西"></a>剩下还能再理解的一点点东西</h3><h4 id="词嵌入算法"><a href="#词嵌入算法" class="headerlink" title="词嵌入算法"></a>词嵌入算法</h4><p>模型输入的单词序列中每个单词输入第一个Decoder时，通过 词嵌入向量（Token Embedding） 将单词用数学方法表示。</p>
+<ul>
+<li>  模型训练的时候会生成一个 嵌入矩阵 （ Embedding Matrix ）。</li>
+<li>  矩阵中每一行都是一个词嵌入向量。矩阵的行数为模型词汇表的长度，列数为每个词嵌入向量的维数。在GPT-2最大模型中，每个向量维数为1600。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/gpt2-trial/GPT2%E7%BB%93%E6%9E%845.png"></p>
+<p><em>Embedding Matrix 结构，图片引用自 <a target="_blank" rel="noopener" href="https://jalammar.github.io/illustrated-gpt2/">Jay Alammar : The Illustrated GPT-2</a></em></p>
+<ul>
+<li>  通过词嵌入向量还可以衡量两个单词的相关性，只需要通过计算两个词嵌入向量夹角即可。Similarity = cos(θ) .</li>
+</ul>
+<p>_毕竟还是高中生的底子，很多东西基础不行还是搞不定，以后看懂了再更。_（咕咕咕）</p>
+<hr>
+<p>参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://openai.com/blog/better-language-models/">OpenAI : Better Language Models and Their Implications</a></p>
+<p><a target="_blank" rel="noopener" href="https://openai.com/blog/language-unsupervised/">OpenAI : Improving Language Understanding with Unsupervised Learning</a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">OpenAI : Language Models Are Unsupervised Multitask Learners</a></p>
+<p><a target="_blank" rel="noopener" href="https://jalammar.github.io/illustrated-gpt2/">Jay Alammar : The Illustrated GPT-2</a></p>
+<p><a target="_blank" rel="noopener" href="https://jalammar.github.io/illustrated-transformer/">Jay Alammar : The Illustrated Transformer</a></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Orange
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://橘子.wang/gpt2-trial/" title="来用 AI 写故事哇">https://橘子.wang/gpt2-trial/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AI%E6%8A%80%E6%9C%AF/" rel="tag"># AI技术</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/google-colab-tutorial/" rel="prev" title="Google Colab 使用教程">
+      <i class="fa fa-chevron-left"></i> Google Colab 使用教程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/turn-your-photos-into-3d-video/" rel="next" title="把你的照片变成 3D 场景视频">
+      把你的照片变成 3D 场景视频 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-2-%E6%9C%89%E5%A4%9A%E5%BC%BA%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">GPT-2 有多强？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A"><span class="nav-number">1.0.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99%EF%BC%9A"><span class="nav-number">1.0.2.</span> <span class="nav-text">AI续写：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-2-%E7%94%9F%E6%88%90%E6%96%87%E6%9C%AC%E5%AE%9E%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">GPT-2 生成文本实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenAI%E5%AE%98%E6%96%B9-7-74%E4%BA%BF%E5%8F%82%E6%95%B0-%E8%8B%B1%E8%AF%AD"><span class="nav-number">2.1.</span> <span class="nav-text">OpenAI官方 7.74亿参数 英语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99%EF%BC%9A-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">AI续写：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPT2-Chinese-%E6%95%A3%E6%96%87%E6%A8%A1%E5%9E%8B-%E4%B8%AD%E6%96%87"><span class="nav-number">2.2.</span> <span class="nav-text">GPT2-Chinese 散文模型 中文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-2"><span class="nav-number">2.2.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99%EF%BC%9A-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">AI续写：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenGPT-2-15%E4%BA%BF%E5%8F%82%E6%95%B0-%E8%8B%B1%E8%AF%AD"><span class="nav-number">2.3.</span> <span class="nav-text">OpenGPT-2 15亿参数 英语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-3"><span class="nav-number">2.3.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%94%9F%E6%88%90%EF%BC%9A"><span class="nav-number">2.3.2.</span> <span class="nav-text">AI生成：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPT2-ml-15%E4%BA%BF%E5%8F%82%E6%95%B0-%E4%B8%AD%E6%96%87"><span class="nav-number">2.4.</span> <span class="nav-text">GPT2-ml 15亿参数 中文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-4"><span class="nav-number">2.4.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99"><span class="nav-number">2.4.2.</span> <span class="nav-text">AI续写</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-GPT-2"><span class="nav-number">3.</span> <span class="nav-text">关于 GPT-2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%A9%E4%B8%8B%E8%BF%98%E8%83%BD%E5%86%8D%E7%90%86%E8%A7%A3%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E4%B8%9C%E8%A5%BF"><span class="nav-number">3.2.</span> <span class="nav-text">剩下还能再理解的一点点东西</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%8D%E5%B5%8C%E5%85%A5%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">词嵌入算法</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Orange"
+      src="/images/logo.png">
+  <p class="site-author-name" itemprop="name">Orange</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/orange1423" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:orange@icedeer.net" title="E-Mail → mailto:orange@icedeer.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/272448431" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;272448431" rel="noopener" target="_blank"><i class="fa fa-play fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/orange1423" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.icedeer.net/" title="https:&#x2F;&#x2F;www.icedeer.net&#x2F;" rel="noopener" target="_blank">Icedeer</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://文件.橘子.wang/" title="https:&#x2F;&#x2F;xn--5nqy36c.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">Orange's Files</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://iupload.top/" title="https:&#x2F;&#x2F;iupload.top&#x2F;" rel="noopener" target="_blank">Iupload</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://mikutap.橘子.wang/" title="https:&#x2F;&#x2F;mikutap.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">MikuTap</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://webosu.橘子.wang/" title="https:&#x2F;&#x2F;webosu.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">WebOsu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://piano-genie.橘子.wang/" title="https:&#x2F;&#x2F;piano-genie.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">PianoGenie</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.orange0.workers.dev/" title="https:&#x2F;&#x2F;github.orange0.workers.dev&#x2F;" rel="noopener" target="_blank">GitHub Proxy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ao3.orange0.workers.dev/" title="https:&#x2F;&#x2F;ao3.orange0.workers.dev&#x2F;" rel="noopener" target="_blank">Archive of Our Own Mirror</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://pages.橘子.wang/tools/microsoft-graph-api-auth" title="https:&#x2F;&#x2F;pages.xn--i8sr36a.wang&#x2F;tools&#x2F;microsoft-graph-api-auth" rel="noopener" target="_blank">Microsoft Graph Api Auth</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Orange</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/pjax/pjax.min.js"></script>
+  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/jquery/jquery.min.js"></script>
+  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/fancybox/jquery.fancybox.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/orange1423/Mypage@master/tools/live2d-widget/autoload.js"></script>
+<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/hls/hls.min.js"></script>
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.css">
+<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/meting/Meting.min.js"></script>
+
+<meting-js
+	server="netease"
+	type="playlist"
+    preload="metadata"
+    fixed="true"
+    order="random"
+	id="3199964749">
+</meting-js>
+
+<script type="text/javascript">
+    $(document).on('pjax:complete', function(){
+        if(Hls.isSupported()) {
+            $(".hlsvideo").each(function(){
+                var hls = new Hls();
+                hls.loadSource($(this).attr("src"));
+                hls.attachMedia(this);
+            });
+        }
+    });
+</script>
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/valine/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'QdSP5lH9RQqp0OWKNqls0BUH-gzGzoHsz',
+      appKey     : '9TCDJt1nsDUWkMhSFH590v02',
+      placeholder: "ヾ(≧▽≦*)o",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://qdsp5lh9.lc-cn-n1-shared.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

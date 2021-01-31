@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.th.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/fancybox/jquery.fancybox.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xn--i8sr36a.wang","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Google Colab 是 Google 的一项免费服务。借助 Colab ，我们可以在浏览器中编写和运行 Jupyter Notebook ，并使用云端计算资源。（Colab免费提供 Tesla T4 ，甚至还有 TPU 哇！） 要继续，请确认你可以正确访问Google。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Colab 使用教程">
+<meta property="og:url" content="https://橘子.wang/google-colab-tutorial/">
+<meta property="og:site_name" content="橘子的小站">
+<meta property="og:description" content="Google Colab 是 Google 的一项免费服务。借助 Colab ，我们可以在浏览器中编写和运行 Jupyter Notebook ，并使用云端计算资源。（Colab免费提供 Tesla T4 ，甚至还有 TPU 哇！） 要继续，请确认你可以正确访问Google。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A21.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A22.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A23.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A24.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A25.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A26.gif">
+<meta property="article:published_time" content="2020-03-15T00:13:12.000Z">
+<meta property="article:modified_time" content="2021-01-29T10:26:59.990Z">
+<meta property="article:author" content="Orange">
+<meta property="article:tag" content="软件技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A21.png">
+
+<link rel="canonical" href="https://橘子.wang/google-colab-tutorial/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Google Colab 使用教程 | 橘子的小站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="橘子的小站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">橘子的小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">橘子咕咕的地方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-笔记">
+
+    <a href="https://笔记.橘子.wang/" rel="noopener" target="_blank"><i class="fas fa-book fa-fw"></i>笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-实验室">
+
+    <a href="/laboratory" rel="section"><i class="fa fa-flask fa-fw"></i>实验室</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://橘子.wang/google-colab-tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.png">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子的小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Google Colab 使用教程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-15 08:13:12" itemprop="dateCreated datePublished" datetime="2020-03-15T08:13:12+08:00">2020-03-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 18:26:59" itemprop="dateModified" datetime="2021-01-29T18:26:59+08:00">2021-01-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/google-colab-tutorial/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/google-colab-tutorial/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Google Colab 是 Google 的一项免费服务。借助 Colab ，我们可以在浏览器中编写和运行 Jupyter Notebook ，并使用云端计算资源。（Colab免费提供 Tesla T4 ，甚至还有 TPU 哇！）</p>
+<p>要继续，请确认你可以正确访问Google。</p>
+<a id="more"></a>
+
+<h2 id="关于Colab"><a href="#关于Colab" class="headerlink" title="关于Colab"></a>关于Colab</h2><p>Colaboratory（简称Colab）是Google推出的一个免费的Jupyter笔记本环境，该环境在云中运行并将笔记本存储在Google Drive中。 在 Colab 中，任何人都可以通过浏览器编写和执行任意 Python 代码。它尤其适合机器学习、数据分析和教育目的。</p>
+<p>Colab支持Python语言和Shell命令。Colab环境中不仅有常用的Python库，还带有Tensorflow、Keras 和 Pytorch等常用机器学习框架，无需配置环境就可以直接上手写代码啦。</p>
+<h2 id="认识Colab界面"><a href="#认识Colab界面" class="headerlink" title="认识Colab界面"></a>认识Colab界面</h2><h3 id="单元格"><a href="#单元格" class="headerlink" title="单元格"></a>单元格</h3><p>Colab中笔记本界面大概长这样：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A21.png"></p>
+<p>如图，里面那一个个的小格子就是单元格啦。单元格里可以直接写Python代码，或者加上 ! 运行shell指令。选中一个代码单元格后，单元格的左上角会出现一个小按钮 ▶ ，点击可单独运行这个代码单元格内的代码。</p>
+<h3 id="菜单栏"><a href="#菜单栏" class="headerlink" title="菜单栏"></a>菜单栏</h3><p>菜单栏大部分跟一个正常的文本编辑器相似，我们只需要关心 代码执行程序 就可以啦。如图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A22.png"></p>
+<ul>
+<li>  全部运行：从第一个单元格按顺序运行到最后一个单元格。</li>
+<li>  运行光标所在的单元格：运行选中的单元格。</li>
+<li>  运行所选单元格的内容：运行单元格中你选择的代码，没错就是你选择的，按下Ctrl+C就可以复制的那种。</li>
+<li>  将该运行时恢复出厂设置：保留笔记本的代码，重置运行环境。会删除你的代码产生的文件，安装的库之类的。</li>
+<li>  更改运行时类型：可以选择GPU或TPU作为硬件加速器，另外可以更改环境为Python2或者Python3，不过Python2很快就要停止支持了。</li>
+<li>  管理会话：可以查看和管理你现在打开的会话。只有连接到运行环境后才产生会话。当代码不运行的时候可以用它及时终止会话。</li>
+<li>  其它均为字面意思，不解释。</li>
+</ul>
+<p>此外在 工具——设置 里面可以修改编辑器的主题，还可以让你写代码的过程非常有威力或者吸引一些柯基和猫咪之类的(?)</p>
+<h3 id="侧边栏"><a href="#侧边栏" class="headerlink" title="侧边栏"></a>侧边栏</h3><ul>
+<li>  第一项为目录，如果代码量大的话可以用来方便跳转。</li>
+<li>  第二项为代码段，有一些写好的示例代码，不常用。</li>
+<li>  第三项为文件，比较重要，连接到运行环境后可以显示和管理运行环境内的文件</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A23.png"></p>
+<h2 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h2><h3 id="编写Python代码"><a href="#编写Python代码" class="headerlink" title="编写Python代码"></a>编写Python代码</h3><ul>
+<li>  直接把代码写在单元格即可。</li>
+<li>  需要调用的函数不一定要与调用函数的代码写在同一个单元格，但需要调用的函数所在单元格必须先运行。</li>
+</ul>
+<h3 id="编写Shell代码"><a href="#编写Shell代码" class="headerlink" title="编写Shell代码"></a>编写Shell代码</h3><ul>
+<li>  写在单元格内并在每个语句前加上 ! 即可。</li>
+<li>  另外 cd , ls 等命令执行加 %</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A24.png"></p>
+<h2 id="单元格输出"><a href="#单元格输出" class="headerlink" title="单元格输出"></a>单元格输出</h2><p>代码单元格运行后会产生输出。例如我们运行一下上面的代码。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A25.png"></p>
+<p>每个单元格下方就是该单元格的输出。在单元格运行的时候此区域也可以读取用户输入。比如说我们做一个简单的加法计算器。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/google-colab-tutorial/Colab%E7%95%8C%E9%9D%A26.gif"></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Orange
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://橘子.wang/google-colab-tutorial/" title="Google Colab 使用教程">https://橘子.wang/google-colab-tutorial/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/" rel="tag"># 软件技术</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/pv-zuishixian/" rel="prev" title="【工程分享】醉诗仙 PV">
+      <i class="fa fa-chevron-left"></i> 【工程分享】醉诗仙 PV
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/gpt2-trial/" rel="next" title="来用 AI 写故事哇">
+      来用 AI 写故事哇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EColab"><span class="nav-number">1.</span> <span class="nav-text">关于Colab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A4%E8%AF%86Colab%E7%95%8C%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">认识Colab界面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E5%85%83%E6%A0%BC"><span class="nav-number">2.1.</span> <span class="nav-text">单元格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8F%9C%E5%8D%95%E6%A0%8F"><span class="nav-number">2.2.</span> <span class="nav-text">菜单栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%A7%E8%BE%B9%E6%A0%8F"><span class="nav-number">2.3.</span> <span class="nav-text">侧边栏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">编写代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99Python%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">编写Python代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99Shell%E4%BB%A3%E7%A0%81"><span class="nav-number">3.2.</span> <span class="nav-text">编写Shell代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E5%85%83%E6%A0%BC%E8%BE%93%E5%87%BA"><span class="nav-number">4.</span> <span class="nav-text">单元格输出</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Orange"
+      src="/images/logo.png">
+  <p class="site-author-name" itemprop="name">Orange</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/orange1423" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:orange@icedeer.net" title="E-Mail → mailto:orange@icedeer.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/272448431" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;272448431" rel="noopener" target="_blank"><i class="fa fa-play fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/orange1423" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.icedeer.net/" title="https:&#x2F;&#x2F;www.icedeer.net&#x2F;" rel="noopener" target="_blank">Icedeer</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://文件.橘子.wang/" title="https:&#x2F;&#x2F;xn--5nqy36c.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">Orange's Files</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://iupload.top/" title="https:&#x2F;&#x2F;iupload.top&#x2F;" rel="noopener" target="_blank">Iupload</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://mikutap.橘子.wang/" title="https:&#x2F;&#x2F;mikutap.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">MikuTap</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://webosu.橘子.wang/" title="https:&#x2F;&#x2F;webosu.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">WebOsu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://piano-genie.橘子.wang/" title="https:&#x2F;&#x2F;piano-genie.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">PianoGenie</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.orange0.workers.dev/" title="https:&#x2F;&#x2F;github.orange0.workers.dev&#x2F;" rel="noopener" target="_blank">GitHub Proxy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ao3.orange0.workers.dev/" title="https:&#x2F;&#x2F;ao3.orange0.workers.dev&#x2F;" rel="noopener" target="_blank">Archive of Our Own Mirror</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://pages.橘子.wang/tools/microsoft-graph-api-auth" title="https:&#x2F;&#x2F;pages.xn--i8sr36a.wang&#x2F;tools&#x2F;microsoft-graph-api-auth" rel="noopener" target="_blank">Microsoft Graph Api Auth</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Orange</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/pjax/pjax.min.js"></script>
+  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/jquery/jquery.min.js"></script>
+  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/fancybox/jquery.fancybox.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/orange1423/Mypage@master/tools/live2d-widget/autoload.js"></script>
+<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/hls/hls.min.js"></script>
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.css">
+<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/meting/Meting.min.js"></script>
+
+<meting-js
+	server="netease"
+	type="playlist"
+    preload="metadata"
+    fixed="true"
+    order="random"
+	id="3199964749">
+</meting-js>
+
+<script type="text/javascript">
+    $(document).on('pjax:complete', function(){
+        if(Hls.isSupported()) {
+            $(".hlsvideo").each(function(){
+                var hls = new Hls();
+                hls.loadSource($(this).attr("src"));
+                hls.attachMedia(this);
+            });
+        }
+    });
+</script>
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/valine/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'QdSP5lH9RQqp0OWKNqls0BUH-gzGzoHsz',
+      appKey     : '9TCDJt1nsDUWkMhSFH590v02',
+      placeholder: "ヾ(≧▽≦*)o",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://qdsp5lh9.lc-cn-n1-shared.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

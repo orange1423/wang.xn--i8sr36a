@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.th.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/fancybox/jquery.fancybox.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xn--i8sr36a.wang","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这是暑假的时候仙豆围鏡、Noah-nono 和我一起做的，写给尘宝的生贺~ 调教是仙豆围鏡，曲绘是 Noah-nono，我做了 PV~ 经常看到编程开源的，调教放有参工程的，但似乎很少看到 PV 放工程文件的。 现在我就在这里分享一下工程文件吧，授权见文章末尾。 PV工程文件版本为 AE CC 2019，使用了一些常用插件如红巨星的 Particular。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【工程分享】醉诗仙 PV">
+<meta property="og:url" content="https://橘子.wang/pv-zuishixian/">
+<meta property="og:site_name" content="橘子的小站">
+<meta property="og:description" content="这是暑假的时候仙豆围鏡、Noah-nono 和我一起做的，写给尘宝的生贺~ 调教是仙豆围鏡，曲绘是 Noah-nono，我做了 PV~ 经常看到编程开源的，调教放有参工程的，但似乎很少看到 PV 放工程文件的。 现在我就在这里分享一下工程文件吧，授权见文章末尾。 PV工程文件版本为 AE CC 2019，使用了一些常用插件如红巨星的 Particular。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-20T01:00:47.000Z">
+<meta property="article:modified_time" content="2020-08-29T14:42:41.950Z">
+<meta property="article:author" content="Orange">
+<meta property="article:tag" content="作品展示">
+<meta property="article:tag" content="工程分享">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://橘子.wang/pv-zuishixian/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【工程分享】醉诗仙 PV | 橘子的小站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="橘子的小站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">橘子的小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">橘子咕咕的地方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-笔记">
+
+    <a href="https://笔记.橘子.wang/" rel="noopener" target="_blank"><i class="fas fa-book fa-fw"></i>笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-实验室">
+
+    <a href="/laboratory" rel="section"><i class="fa fa-flask fa-fw"></i>实验室</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://橘子.wang/pv-zuishixian/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.png">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子的小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【工程分享】醉诗仙 PV
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-20 09:00:47" itemprop="dateCreated datePublished" datetime="2019-10-20T09:00:47+08:00">2019-10-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-29 22:42:41" itemprop="dateModified" datetime="2020-08-29T22:42:41+08:00">2020-08-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vocaloid/" itemprop="url" rel="index"><span itemprop="name">Vocaloid</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vocaloid/PV/" itemprop="url" rel="index"><span itemprop="name">PV</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/pv-zuishixian/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/pv-zuishixian/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这是暑假的时候<a target="_blank" rel="noopener" href="https://space.bilibili.com/30260188">仙豆围</a><a target="_blank" rel="noopener" href="https://space.bilibili.com/30260188">鏡</a>、Noah-nono 和我一起做的，写给尘宝的生贺~</p>
+<p>调教是仙豆围鏡，曲绘是 Noah-nono，我做了 PV~</p>
+<p>经常看到编程开源的，调教放有参工程的，但似乎很少看到 PV 放工程文件的。</p>
+<p>现在我就在这里分享一下工程文件吧，授权见文章末尾。</p>
+<p>PV工程文件版本为 AE CC 2019，使用了一些常用插件如红巨星的 Particular。</p>
+<a id="more"></a>
+
+<h2 id="先展示一下成品"><a href="#先展示一下成品" class="headerlink" title="先展示一下成品~"></a>先展示一下成品~</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av63376136">快戳我快戳我ヾ(≧▽≦*)o</a></p>
+<style>
+.video {
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+overflow: hidden;
+}
+.video iframe,
+.video object,
+.video embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+</style>
+<p class="video"><iframe src="//player.bilibili.com/player.html?aid=63376136&amp;cid=110715140&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></p>
+
+<p>也请大家支持一下哦 (●’◡’●)</p>
+<h2 id="接着就是工程文件啦"><a href="#接着就是工程文件啦" class="headerlink" title="接着就是工程文件啦"></a>接着就是工程文件啦</h2><p><a target="_blank" rel="noopener" href="https://文件.橘子.wang/%E5%85%B6%E5%AE%83/%E5%B7%A5%E7%A8%8B/%E9%86%89%E8%AF%97%E4%BB%99PV%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6.zip">直链 1</a></p>
+<p><a target="_blank" rel="noopener" href="https://googledrive.icedeer.workers.dev/%25E5%2585%25B6%25E5%25AE%2583/%25E5%25B7%25A5%25E7%25A8%258B/%E9%86%89%E8%AF%97%E4%BB%99PV%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6.zip">直链 2</a></p>
+<p><a target="_blank" rel="noopener" href="https://icedeerstudio-my.sharepoint.com/:u:/g/personal/orange_icedeer_net/EajPUr2oXPdPjaCRrVDuINYBgW5uc6YOpS8yfpv6KzcyKA">Onedrive</a></p>
+<p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1yqupfXDAklItMNXu-wMD6Sl8xG10uiX8/view?usp=sharing">GoogleDrive</a></p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1vHQwMbPrs11AyPN5T4eQWw&shfl=shareset">度娘网盘</a> 提取码: hg7y</p>
+<h2 id="PV部分授权"><a href="#PV部分授权" class="headerlink" title="PV部分授权"></a>PV部分授权</h2><p>这里的授权不包括使用的任何素材。素材大部分来源于网络，仅供参考，请勿商用。音频使用请找<a target="_blank" rel="noopener" href="https://space.bilibili.com/30260188">仙豆围镜</a>，曲绘使用请找 Noah-nono。</p>
+<p><a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 国际许可协议</a></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Orange
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://橘子.wang/pv-zuishixian/" title="【工程分享】醉诗仙 PV">https://橘子.wang/pv-zuishixian/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BD%9C%E5%93%81%E5%B1%95%E7%A4%BA/" rel="tag"># 作品展示</a>
+              <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%88%86%E4%BA%AB/" rel="tag"># 工程分享</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/google-colab-tutorial/" rel="next" title="Google Colab 使用教程">
+      Google Colab 使用教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E5%B1%95%E7%A4%BA%E4%B8%80%E4%B8%8B%E6%88%90%E5%93%81"><span class="nav-number">1.</span> <span class="nav-text">先展示一下成品~</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E7%9D%80%E5%B0%B1%E6%98%AF%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6%E5%95%A6"><span class="nav-number">2.</span> <span class="nav-text">接着就是工程文件啦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PV%E9%83%A8%E5%88%86%E6%8E%88%E6%9D%83"><span class="nav-number">3.</span> <span class="nav-text">PV部分授权</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Orange"
+      src="/images/logo.png">
+  <p class="site-author-name" itemprop="name">Orange</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/orange1423" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:orange@icedeer.net" title="E-Mail → mailto:orange@icedeer.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/272448431" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;272448431" rel="noopener" target="_blank"><i class="fa fa-play fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/orange1423" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.icedeer.net/" title="https:&#x2F;&#x2F;www.icedeer.net&#x2F;" rel="noopener" target="_blank">Icedeer</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://文件.橘子.wang/" title="https:&#x2F;&#x2F;xn--5nqy36c.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">Orange's Files</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://iupload.top/" title="https:&#x2F;&#x2F;iupload.top&#x2F;" rel="noopener" target="_blank">Iupload</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://mikutap.橘子.wang/" title="https:&#x2F;&#x2F;mikutap.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">MikuTap</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://webosu.橘子.wang/" title="https:&#x2F;&#x2F;webosu.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">WebOsu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://piano-genie.橘子.wang/" title="https:&#x2F;&#x2F;piano-genie.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">PianoGenie</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.orange0.workers.dev/" title="https:&#x2F;&#x2F;github.orange0.workers.dev&#x2F;" rel="noopener" target="_blank">GitHub Proxy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ao3.orange0.workers.dev/" title="https:&#x2F;&#x2F;ao3.orange0.workers.dev&#x2F;" rel="noopener" target="_blank">Archive of Our Own Mirror</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://pages.橘子.wang/tools/microsoft-graph-api-auth" title="https:&#x2F;&#x2F;pages.xn--i8sr36a.wang&#x2F;tools&#x2F;microsoft-graph-api-auth" rel="noopener" target="_blank">Microsoft Graph Api Auth</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Orange</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/pjax/pjax.min.js"></script>
+  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/jquery/jquery.min.js"></script>
+  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/fancybox/jquery.fancybox.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/orange1423/Mypage@master/tools/live2d-widget/autoload.js"></script>
+<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/hls/hls.min.js"></script>
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.css">
+<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/meting/Meting.min.js"></script>
+
+<meting-js
+	server="netease"
+	type="playlist"
+    preload="metadata"
+    fixed="true"
+    order="random"
+	id="3199964749">
+</meting-js>
+
+<script type="text/javascript">
+    $(document).on('pjax:complete', function(){
+        if(Hls.isSupported()) {
+            $(".hlsvideo").each(function(){
+                var hls = new Hls();
+                hls.loadSource($(this).attr("src"));
+                hls.attachMedia(this);
+            });
+        }
+    });
+</script>
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/valine/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'QdSP5lH9RQqp0OWKNqls0BUH-gzGzoHsz',
+      appKey     : '9TCDJt1nsDUWkMhSFH590v02',
+      placeholder: "ヾ(≧▽≦*)o",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://qdsp5lh9.lc-cn-n1-shared.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

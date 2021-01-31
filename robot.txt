@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://xn--i8sr36a.wang/sitemap.xml
