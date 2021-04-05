@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xn--i8sr36a.wang/ai-beatmap-generator-train/</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://xn--i8sr36a.wang/gpt2-trial/</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://xn--i8sr36a.wang/sytleGAN2-waifu/</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://xn--i8sr36a.wang/butterfly/</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://xn--i8sr36a.wang/pv-shangxian/</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://xn--i8sr36a.wang/pv-zuishixian/</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://xn--i8sr36a.wang/direction/</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://xn--i8sr36a.wang/untitled-02/</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://xn--i8sr36a.wang/untitled-01/</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
     <loc>https://xn--i8sr36a.wang/laboratory/gpt-2/index.html</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://xn--i8sr36a.wang/laboratory/styleGAN2/index.html</loc>
+    <lastmod>2021-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://xn--i8sr36a.wang/laboratory/stylegan2/index.html</loc>
     <lastmod>2021-04-05</lastmod>
   </url>
   <url>
@@ -13,14 +57,6 @@
     <lastmod>2021-04-03</lastmod>
   </url>
   <url>
-    <loc>https://xn--i8sr36a.wang/ai-beatmap-generator-train/</loc>
-    <lastmod>2021-01-29</lastmod>
-  </url>
-  <url>
-    <loc>https://xn--i8sr36a.wang/gpt2-trial/</loc>
-    <lastmod>2021-01-29</lastmod>
-  </url>
-  <url>
     <loc>https://xn--i8sr36a.wang/google-colab-tutorial/</loc>
     <lastmod>2021-01-29</lastmod>
   </url>
@@ -30,14 +66,6 @@
   </url>
   <url>
     <loc>https://xn--i8sr36a.wang/laboratory/ai-beatmap-generator/index.html</loc>
-    <lastmod>2020-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://xn--i8sr36a.wang/pv-shangxian/</loc>
-    <lastmod>2020-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://xn--i8sr36a.wang/pv-zuishixian/</loc>
     <lastmod>2020-08-29</lastmod>
   </url>
 </urlset> 
