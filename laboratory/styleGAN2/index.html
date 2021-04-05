@@ -24,15 +24,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"xn--i8sr36a.wang","root":"/","images":"/images","scheme":"Pisces","version":"8.3.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="实验需要使用Google Colab，请确认你能够访问Google。 初级：体验GPT-2生成文本   无需基础，想尝试的都可以来看看。  实验步骤1.选择一个感兴趣的笔记本以开始。    GPT-2 英文预训练模型（OpenAI官方）   GPT-2 中文预训练模型_1.5B参数通用（GPT2-ml）   GPT-2 中文预训练模型_散文、诗词、对联、歌词、通用、文言文（GPT2-Chinese">
+<meta name="description" content="实验需要使用 Google Colab，请确认你能够访问 Google。 初级：体验 SytleGAN2 生成图片   无需基础，想尝试的都可以来看看。  实验步骤1.选择一个感兴趣的笔记本以开始。    StyleGAN2 生成二次元头像（This Waifu Does Not Exist）   StyleGAN2 生成整幅插画（This Anime Does Not Exist）  2.在Go">
 <meta property="og:type" content="website">
-<meta property="og:title" content="实验室：GPT-2">
+<meta property="og:title" content="实验室：StyleGAN2">
 <meta property="og:url" content="https://橘子.wang/laboratory/stylegan2/">
 <meta property="og:site_name" content="橘子的小站">
-<meta property="og:description" content="实验需要使用Google Colab，请确认你能够访问Google。 初级：体验GPT-2生成文本   无需基础，想尝试的都可以来看看。  实验步骤1.选择一个感兴趣的笔记本以开始。    GPT-2 英文预训练模型（OpenAI官方）   GPT-2 中文预训练模型_1.5B参数通用（GPT2-ml）   GPT-2 中文预训练模型_散文、诗词、对联、歌词、通用、文言文（GPT2-Chinese">
+<meta property="og:description" content="实验需要使用 Google Colab，请确认你能够访问 Google。 初级：体验 SytleGAN2 生成图片   无需基础，想尝试的都可以来看看。  实验步骤1.选择一个感兴趣的笔记本以开始。    StyleGAN2 生成二次元头像（This Waifu Does Not Exist）   StyleGAN2 生成整幅插画（This Anime Does Not Exist）  2.在Go">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-09T10:42:48.000Z">
-<meta property="article:modified_time" content="2021-04-05T01:16:41.794Z">
+<meta property="article:published_time" content="2021-03-21T10:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-05T05:04:36.663Z">
 <meta property="article:author" content="Orange">
 <meta name="twitter:card" content="summary">
 
@@ -49,7 +49,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>实验室：GPT-2 | 橘子的小站
+<title>实验室：StyleGAN2 | 橘子的小站
 </title>
   
 
@@ -166,7 +166,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E7%BA%A7%EF%BC%9A%E4%BD%93%E9%AA%8CGPT-2%E7%94%9F%E6%88%90%E6%96%87%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">初级：体验GPT-2生成文本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">实验步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E7%BA%A7%EF%BC%9A%E5%BE%AE%E8%B0%83GPT-2%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">中级：微调GPT-2模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%EF%BC%9A%E8%AE%AD%E7%BB%83GPT-2%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">高级：训练GPT-2模型</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E7%BA%A7%EF%BC%9A%E4%BD%93%E9%AA%8C-SytleGAN2-%E7%94%9F%E6%88%90%E5%9B%BE%E7%89%87"><span class="nav-number">1.</span> <span class="nav-text">初级：体验 SytleGAN2 生成图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">实验步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -283,7 +283,7 @@
     
     <div class="post-block" lang="zh-CN"><header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">实验室：GPT-2
+<h1 class="post-title" itemprop="name headline">实验室：StyleGAN2
 </h1>
 
 <div class="post-meta-container">
@@ -299,15 +299,14 @@
       
       
       <div class="post-body">
-          <p><em>实验需要使用Google Colab，请确认你能够访问Google。</em></p>
-<h2 id="初级：体验GPT-2生成文本"><a href="#初级：体验GPT-2生成文本" class="headerlink" title="初级：体验GPT-2生成文本"></a>初级：体验GPT-2生成文本</h2><ul>
+          <p><em>实验需要使用 Google Colab，请确认你能够访问 Google。</em></p>
+<h2 id="初级：体验-SytleGAN2-生成图片"><a href="#初级：体验-SytleGAN2-生成图片" class="headerlink" title="初级：体验 SytleGAN2 生成图片"></a>初级：体验 SytleGAN2 生成图片</h2><ul>
 <li>  <em>无需基础，想尝试的都可以来看看。</em></li>
 </ul>
 <h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><p>1.选择一个感兴趣的笔记本以开始。</p>
 <ul>
-<li>  <a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1ftk6lOUYN6OyYf9DOWdOx9mqLwFrjjoA?usp=sharing">GPT-2 英文预训练模型</a>（<a target="_blank" rel="noopener" href="https://github.com/openai/gpt-2">OpenAI官方</a>）</li>
-<li>  <a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1TsYtRS5La0sEX1wWlcEfFkgQA0kmUDIW?usp=sharing">GPT-2 中文预训练模型_1.5B参数通用</a>（<a target="_blank" rel="noopener" href="https://github.com/imcaspar/gpt2-ml">GPT2-ml</a>）</li>
-<li>  <a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/12TGuJYyJ06yFY43V3o4z_Y5rSAFJ-Pb7?usp=sharing">GPT-2 中文预训练模型_散文、诗词、对联、歌词、通用、文言文</a>（<a target="_blank" rel="noopener" href="https://github.com/Morizeyao/GPT2-Chinese">GPT2-Chinese</a>）</li>
+<li>  <a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1L_PZS70_BtXOEF8pk2oCpNNysguWbXvx?usp=sharing">StyleGAN2 生成二次元头像</a>（<a target="_blank" rel="noopener" href="https://www.obormot.net/demos/these-waifus-do-not-exist-v2-alt">This Waifu Does Not Exist</a>）</li>
+<li>  <a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/17NCboCja1T5OfUxBSmvZ8w2yACJxjYHc?usp=sharing">StyleGAN2 生成整幅插画</a>（<a target="_blank" rel="noopener" href="https://thisanimedoesnotexist.ai/">This Anime Does Not Exist</a>）</li>
 </ul>
 <p>2.在Google Colab按提示操作吧。</p>
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1.看不懂Colab那愚蠢的界面哇！</p>
@@ -319,17 +318,6 @@
 <li>  别慌，毕竟AI算法很吃硬件的。耐心等待一两分钟吧。</li>
 <li>  有时也会出现网络连接的问题，检查一下能否能流畅地连接Google。</li>
 </ul>
-<h2 id="中级：微调GPT-2模型"><a href="#中级：微调GPT-2模型" class="headerlink" title="中级：微调GPT-2模型"></a>中级：微调GPT-2模型</h2><ul>
-<li>  <em>需要一些基本的软件使用知识</em></li>
-<li>  <em>需要一些肝。</em></li>
-</ul>
-<p>咕咕咕，下次再补。</p>
-<p>2020.8.14更新：由于GPT-2模型规模巨大，橘子可利用的计算资源远不及所需，因此GPT-2模型微调和训练计划暂时搁置。</p>
-<h2 id="高级：训练GPT-2模型"><a href="#高级：训练GPT-2模型" class="headerlink" title="高级：训练GPT-2模型"></a>高级：训练GPT-2模型</h2><ul>
-<li>  <em>需要至少会一种编程语言用来处理数据，除非你打算和橘子用一样的数据来训练</em></li>
-<li>  <em>需要大量肝。</em></li>
-</ul>
-<p>咕咕咕，有时间就补。</p>
 
       </div>
       
