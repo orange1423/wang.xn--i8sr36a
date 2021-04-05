@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.th.png">
@@ -13,15 +15,16 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
+
 <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/fancybox/jquery.fancybox.css">
 
-<script id="hexo-configurations">
+<script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"xn--i8sr36a.wang","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"xn--i8sr36a.wang","root":"/","images":"/images","scheme":"Pisces","version":"8.3.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-
-  <meta name="description" content="最近在玩 OpenAI 的 GPT-2。它是一种大型的基于 Transformer 的语言模型。OpenAI使用 15 亿参数和 800 万篇网络文本对其进行训练。训练后可以“ 根据文本中的所有先前单词，预测下一个单词”。它通过提示的小段文字来续写大段连贯文本。OpenAI 认为它生成的文本具有足够的欺骗性，可以“以假乱真”，以担心滥用为由迟迟不肯放出全部代码和模型，气得网友嘲讽其为 CloseA">
+<meta name="description" content="最近在玩 OpenAI 的 GPT-2。它是一种大型的基于 Transformer 的语言模型。OpenAI使用 15 亿参数和 800 万篇网络文本对其进行训练。训练后可以“ 根据文本中的所有先前单词，预测下一个单词”。它通过提示的小段文字来续写大段连贯文本。OpenAI 认为它生成的文本具有足够的欺骗性，可以“以假乱真”，以担心滥用为由迟迟不肯放出全部代码和模型，气得网友嘲讽其为 CloseA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="来用 AI 写故事哇">
 <meta property="og:url" content="https://橘子.wang/gpt2-trial/">
@@ -41,10 +44,11 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://xn--i8sr36a.wang/gpt2-trial/%E8%BE%93%E5%85%A5%E6%B3%95.gif">
 
+
 <link rel="canonical" href="https://橘子.wang/gpt2-trial/">
 
 
-<script id="page-configurations">
+<script data-pjax class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
@@ -53,61 +57,70 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>来用 AI 写故事哇 | 橘子的小站</title>
+<title>来用 AI 写故事哇 | 橘子的小站</title>
   
-
-
 
 
 
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
 <link rel="alternate" href="/atom.xml" title="橘子的小站" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">橘子的小站</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">橘子咕咕的地方</p>
   </div>
@@ -120,49 +133,16 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-笔记">
-
-    <a href="https://笔记.橘子.wang/" rel="noopener" target="_blank"><i class="fas fa-book fa-fw"></i>笔记</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-实验室">
-
-    <a href="/laboratory" rel="section"><i class="fa fa-flask fa-fw"></i>实验室</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-sitemap">
-
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
-
-  </li>
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-实验室"><a href="/laboratory" rel="section"><i class="fa fa-flask fa-fw"></i>实验室</a></li>
+        <li class="menu-item menu-item-live(beta)"><a href="/Live" rel="section"><i class="fab fa-youtube fa-fw"></i>Live(beta)</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
   </ul>
 </nav>
 
@@ -170,29 +150,147 @@
 
 
 </div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-2-%E6%9C%89%E5%A4%9A%E5%BC%BA%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">GPT-2 有多强？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A"><span class="nav-number">1.0.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99%EF%BC%9A"><span class="nav-number">1.0.2.</span> <span class="nav-text">AI续写：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-2-%E7%94%9F%E6%88%90%E6%96%87%E6%9C%AC%E5%AE%9E%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">GPT-2 生成文本实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenAI%E5%AE%98%E6%96%B9-7-74%E4%BA%BF%E5%8F%82%E6%95%B0-%E8%8B%B1%E8%AF%AD"><span class="nav-number">2.1.</span> <span class="nav-text">OpenAI官方 7.74亿参数 英语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99%EF%BC%9A-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">AI续写：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPT2-Chinese-%E6%95%A3%E6%96%87%E6%A8%A1%E5%9E%8B-%E4%B8%AD%E6%96%87"><span class="nav-number">2.2.</span> <span class="nav-text">GPT2-Chinese 散文模型 中文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-2"><span class="nav-number">2.2.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99%EF%BC%9A-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">AI续写：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenGPT-2-15%E4%BA%BF%E5%8F%82%E6%95%B0-%E8%8B%B1%E8%AF%AD"><span class="nav-number">2.3.</span> <span class="nav-text">OpenGPT-2 15亿参数 英语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-3"><span class="nav-number">2.3.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%94%9F%E6%88%90%EF%BC%9A"><span class="nav-number">2.3.2.</span> <span class="nav-text">AI生成：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPT2-ml-15%E4%BA%BF%E5%8F%82%E6%95%B0-%E4%B8%AD%E6%96%87"><span class="nav-number">2.4.</span> <span class="nav-text">GPT2-ml 15亿参数 中文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-4"><span class="nav-number">2.4.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99"><span class="nav-number">2.4.2.</span> <span class="nav-text">AI续写</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-GPT-2"><span class="nav-number">3.</span> <span class="nav-text">关于 GPT-2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%A9%E4%B8%8B%E8%BF%98%E8%83%BD%E5%86%8D%E7%90%86%E8%A7%A3%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E4%B8%9C%E8%A5%BF"><span class="nav-number">3.2.</span> <span class="nav-text">剩下还能再理解的一点点东西</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%8D%E5%B5%8C%E5%85%A5%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">词嵌入算法</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Orange"
+      src="/images/logo.png">
+  <p class="site-author-name" itemprop="name">Orange</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/orange1423" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:orange@icedeer.net" title="E-Mail → mailto:orange@icedeer.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/272448431" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;272448431" rel="noopener" target="_blank"><i class="fa fa-play fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/orange1423" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.icedeer.net/" title="https:&#x2F;&#x2F;www.icedeer.net&#x2F;" rel="noopener" target="_blank">Icedeer</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://文件.橘子.wang/" title="https:&#x2F;&#x2F;xn--5nqy36c.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">Orange's Files</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://iupload.top/" title="https:&#x2F;&#x2F;iupload.top&#x2F;" rel="noopener" target="_blank">Iupload</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://mikutap.橘子.wang/" title="https:&#x2F;&#x2F;mikutap.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">MikuTap</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://webosu.橘子.wang/" title="https:&#x2F;&#x2F;webosu.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">WebOsu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://piano-genie.橘子.wang/" title="https:&#x2F;&#x2F;piano-genie.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">PianoGenie</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.orange0.workers.dev/" title="https:&#x2F;&#x2F;github.orange0.workers.dev&#x2F;" rel="noopener" target="_blank">GitHub Proxy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ao3.orange0.workers.dev/" title="https:&#x2F;&#x2F;ao3.orange0.workers.dev&#x2F;" rel="noopener" target="_blank">Archive of Our Own Mirror</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://pages.橘子.wang/tools/microsoft-graph-api-auth" title="https:&#x2F;&#x2F;pages.xn--i8sr36a.wang&#x2F;tools&#x2F;microsoft-graph-api-auth" rel="noopener" target="_blank">Microsoft Graph Api Auth</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
   <div class="reading-progress-bar"></div>
   <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
 
-          <div class="content post posts-expand">
-            
+    <div class="main-inner post posts-expand">
 
-    
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://橘子.wang/gpt2-trial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -209,51 +307,39 @@
           来用 AI 写故事哇
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-15 14:00:00" itemprop="dateCreated datePublished" datetime="2020-03-15T14:00:00+08:00">2020-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 18:56:40" itemprop="dateModified" datetime="2021-01-29T18:56:40+08:00">2021-01-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
+        <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/gpt2-trial/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/gpt2-trial/" itemprop="commentCount"></span>
-    </a>
-  </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-15 14:00:00" itemprop="dateCreated datePublished" datetime="2020-03-15T14:00:00+08:00">2020-03-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-29 18:56:40" itemprop="dateModified" datetime="2021-01-29T18:56:40+08:00">2021-01-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
   
-  
+</div>
 
         </div>
       </header>
@@ -262,12 +348,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <p>最近在玩 OpenAI 的 <a target="_blank" rel="noopener" href="https://openai.com/blog/better-language-models/">GPT-2</a>。它是一种大型的基于 Transformer 的语言模型。OpenAI使用 15 亿参数和 800 万篇网络文本对其进行训练。训练后可以“ 根据文本中的所有先前单词，预测下一个单词”。它通过提示的小段文字来续写大段连贯文本。OpenAI 认为它生成的文本具有足够的欺骗性，可以“以假乱真”，以担心滥用为由迟迟不肯放出全部代码和模型，气得网友嘲讽其为 CloseAI 。</p>
 <p>(2020.6.25 更新，OpenAI 的 15 亿参数模型已放出，已经在橘子的实验室整理为 Colab 笔记本。)</p>
 <p>不过，目前 OpenAI 还是放出了部分代码和 7.74 亿参数的较小预训练模型。也有各路大佬复刻了 15 亿参数的<a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1esbpDOorf7DQJV8GXWON24c-EQrSKOit">OpenGPT-2</a>，以及支持中文的 <a target="_blank" rel="noopener" href="https://github.com/Morizeyao/GPT2-Chinese">GPT2-Chinese</a>、带有15亿参数中文预训练模型的 <a target="_blank" rel="noopener" href="https://github.com/imcaspar/gpt2-ml">GPT2-ml</a>。虽然效果或许没有 OpenAI 的 15 亿参数模型好，但也够我们玩一会了。想体验的可前往 <a href="/laboratory/gpt-2">橘子的实验室</a>。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="GPT-2-有多强？"><a href="#GPT-2-有多强？" class="headerlink" title="GPT-2 有多强？"></a>GPT-2 有多强？</h2><p>下面是 OpenAI 在其官网发布的 15 亿参数模型输出示例：</p>
 <h4 id="人工编写："><a href="#人工编写：" class="headerlink" title="人工编写："></a>人工编写：</h4><p><em>In a shocking finding, scientist discovered a herd of unicorns living in a remote, previously unexplored valley, in the Andes Mountains. Even more surprising to the researchers was the fact that the unicorns spoke perfect English.</em></p>
@@ -383,16 +467,18 @@
     
     
     
-        
 
-<div>
-<ul class="post-copyright">
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Orange
+      <strong>本文作者： </strong>Orange
   </li>
   <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://橘子.wang/gpt2-trial/" title="来用 AI 写故事哇">https://橘子.wang/gpt2-trial/</a>
+      <strong>本文链接：</strong>
+      <a href="https://橘子.wang/gpt2-trial/" title="来用 AI 写故事哇">https://橘子.wang/gpt2-trial/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
@@ -400,38 +486,33 @@
 </ul>
 </div>
 
-
-      <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/AI%E6%8A%80%E6%9C%AF/" rel="tag"># AI技术</a>
           </div>
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/google-colab-tutorial/" rel="prev" title="Google Colab 使用教程">
-      <i class="fa fa-chevron-left"></i> Google Colab 使用教程
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/turn-your-photos-into-3d-video/" rel="next" title="把你的照片变成 3D 场景视频">
-      把你的照片变成 3D 场景视频 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/google-colab-tutorial/" rel="prev" title="Google Colab 使用教程">
+                  <i class="fa fa-chevron-left"></i> Google Colab 使用教程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/turn-your-photos-into-3d-video/" rel="next" title="把你的照片变成 3D 场景视频">
+                  把你的照片变成 3D 场景视频 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-          
-    <div class="comments" id="valine-comments"></div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -440,7 +521,7 @@
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
     if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
       if (activeTab) {
         activeTab.click();
       }
@@ -449,138 +530,19 @@
   if (CONFIG.comments.storage) {
     window.addEventListener('tabs:click', event => {
       if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
+      const commentClass = event.target.classList[1];
       localStorage.setItem('comments_active', commentClass);
     });
   }
 </script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-2-%E6%9C%89%E5%A4%9A%E5%BC%BA%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">GPT-2 有多强？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A"><span class="nav-number">1.0.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99%EF%BC%9A"><span class="nav-number">1.0.2.</span> <span class="nav-text">AI续写：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-2-%E7%94%9F%E6%88%90%E6%96%87%E6%9C%AC%E5%AE%9E%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">GPT-2 生成文本实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenAI%E5%AE%98%E6%96%B9-7-74%E4%BA%BF%E5%8F%82%E6%95%B0-%E8%8B%B1%E8%AF%AD"><span class="nav-number">2.1.</span> <span class="nav-text">OpenAI官方 7.74亿参数 英语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99%EF%BC%9A-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">AI续写：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPT2-Chinese-%E6%95%A3%E6%96%87%E6%A8%A1%E5%9E%8B-%E4%B8%AD%E6%96%87"><span class="nav-number">2.2.</span> <span class="nav-text">GPT2-Chinese 散文模型 中文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-2"><span class="nav-number">2.2.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99%EF%BC%9A-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">AI续写：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenGPT-2-15%E4%BA%BF%E5%8F%82%E6%95%B0-%E8%8B%B1%E8%AF%AD"><span class="nav-number">2.3.</span> <span class="nav-text">OpenGPT-2 15亿参数 英语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-3"><span class="nav-number">2.3.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%94%9F%E6%88%90%EF%BC%9A"><span class="nav-number">2.3.2.</span> <span class="nav-text">AI生成：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPT2-ml-15%E4%BA%BF%E5%8F%82%E6%95%B0-%E4%B8%AD%E6%96%87"><span class="nav-number">2.4.</span> <span class="nav-text">GPT2-ml 15亿参数 中文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E7%BC%96%E5%86%99%EF%BC%9A-4"><span class="nav-number">2.4.1.</span> <span class="nav-text">人工编写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AI%E7%BB%AD%E5%86%99"><span class="nav-number">2.4.2.</span> <span class="nav-text">AI续写</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-GPT-2"><span class="nav-number">3.</span> <span class="nav-text">关于 GPT-2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%A9%E4%B8%8B%E8%BF%98%E8%83%BD%E5%86%8D%E7%90%86%E8%A7%A3%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E4%B8%9C%E8%A5%BF"><span class="nav-number">3.2.</span> <span class="nav-text">剩下还能再理解的一点点东西</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%8D%E5%B5%8C%E5%85%A5%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">词嵌入算法</span></a></li></ol></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Orange"
-      src="/images/logo.png">
-  <p class="site-author-name" itemprop="name">Orange</p>
-  <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">6</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/orange1423" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:orange@icedeer.net" title="E-Mail → mailto:orange@icedeer.net" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://space.bilibili.com/272448431" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;272448431" rel="noopener" target="_blank"><i class="fa fa-play fa-fw"></i>Bilibili</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/orange1423" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
-      </span>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://www.icedeer.net/" title="https:&#x2F;&#x2F;www.icedeer.net&#x2F;" rel="noopener" target="_blank">Icedeer</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://文件.橘子.wang/" title="https:&#x2F;&#x2F;xn--5nqy36c.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">Orange's Files</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://iupload.top/" title="https:&#x2F;&#x2F;iupload.top&#x2F;" rel="noopener" target="_blank">Iupload</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://mikutap.橘子.wang/" title="https:&#x2F;&#x2F;mikutap.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">MikuTap</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://webosu.橘子.wang/" title="https:&#x2F;&#x2F;webosu.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">WebOsu</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://piano-genie.橘子.wang/" title="https:&#x2F;&#x2F;piano-genie.xn--i8sr36a.wang&#x2F;" rel="noopener" target="_blank">PianoGenie</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://github.orange0.workers.dev/" title="https:&#x2F;&#x2F;github.orange0.workers.dev&#x2F;" rel="noopener" target="_blank">GitHub Proxy</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://ao3.orange0.workers.dev/" title="https:&#x2F;&#x2F;ao3.orange0.workers.dev&#x2F;" rel="noopener" target="_blank">Archive of Our Own Mirror</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://pages.橘子.wang/tools/microsoft-graph-api-auth" title="https:&#x2F;&#x2F;pages.xn--i8sr36a.wang&#x2F;tools&#x2F;microsoft-graph-api-auth" rel="noopener" target="_blank">Microsoft Graph Api Auth</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
@@ -588,88 +550,35 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Orange</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
-  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/pjax/pjax.min.js"></script>
   <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/jquery/jquery.min.js"></script>
-  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/fancybox/jquery.fancybox.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-<script src="/js/bookmark.js"></script>
-
-  <script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
-    '#page-configurations',
-    '.content-wrap',
+    '.page-configurations',
+    '.main-inner',
     '.post-toc-wrap',
     '.languages',
-    '#pjax'
+    '.pjax'
   ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
   analytics: false,
   cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
 });
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
   NexT.boot.refresh();
   // Define Motion Sequence & Bootstrap Motion.
   if (CONFIG.motion.enable) {
@@ -679,11 +588,12 @@ window.addEventListener('pjax:success', () => {
       .add(NexT.motion.middleWares.postList)
       .bootstrap();
   }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
   NexT.utils.updateSidebarPosition();
 });
 </script>
-
-
 
 
   
@@ -693,22 +603,21 @@ window.addEventListener('pjax:success', () => {
 
 
 
+  
 
 
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/gh/orange1423/Mypage@master/tools/live2d-widget/autoload.js"></script>
-<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/hls/hls.min.js"></script>
-<!-- require APlayer -->
-<link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.css">
-<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.js"></script>
-<!-- require MetingJS -->
-<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/meting/Meting.min.js"></script>
-
+<div id="myscript">
+    <script src="https://cdn.jsdelivr.net/gh/orange1423/Mypage@master/tools/live2d-widget/autoload.js"></script>
+    <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/hls/hls.min.js"></script>
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.css">
+    <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.js"></script>
+    <!-- require MetingJS -->
+    <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/meting/Meting.min.js"></script>
+    <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/leancloud-realtime/im-browser.min.js"></script>
+    <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/n/N.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@^4/dist/av-min.js"></script>
+</div>
 <meting-js
 	server="netease"
 	type="playlist"
@@ -719,49 +628,23 @@ window.addEventListener('pjax:success', () => {
 </meting-js>
 
 <script type="text/javascript">
-    $(document).on('pjax:complete', function(){
+    $(document).on("pjax:complete",function(){
         if(Hls.isSupported()) {
             $(".hlsvideo").each(function(){
-                var hls = new Hls();
-                hls.loadSource($(this).attr("src"));
-                hls.attachMedia(this);
+                if(!$(this).attr("src").startsWith("blob")){
+                    var hls = new Hls();
+                    hls.loadSource($(this).attr("src"));
+                    hls.attachMedia(this);
+                }
             });
+        }
+        if($("#danmu").length > 0 && $("#danmuscript").length == 0 ) {
+            $("#myscript").append(`<script id="danmuscript" src="/lib/danmu/realtimedanmu.js"><\/script>`);
         }
     });
 </script>
-    <div id="pjax">
-  
+    <div class="pjax">
 
-  
-
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/valine/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : false,
-      appId      : 'QdSP5lH9RQqp0OWKNqls0BUH-gzGzoHsz',
-      appKey     : '9TCDJt1nsDUWkMhSFH590v02',
-      placeholder: "ヾ(≧▽≦*)o",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : 'https://qdsp5lh9.lc-cn-n1-shared.com'
-    });
-  }, window.Valine);
-});
-</script>
 
     </div>
 </body>

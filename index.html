@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.th.png">
@@ -13,15 +15,16 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
+
 <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/fancybox/jquery.fancybox.css">
 
-<script id="hexo-configurations">
+<script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"xn--i8sr36a.wang","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"xn--i8sr36a.wang","root":"/","images":"/images","scheme":"Pisces","version":"8.3.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-
-  <meta property="og:type" content="website">
+<meta property="og:type" content="website">
 <meta property="og:title" content="橘子的小站">
 <meta property="og:url" content="https://橘子.wang/">
 <meta property="og:site_name" content="橘子的小站">
@@ -29,10 +32,11 @@
 <meta property="article:author" content="Orange">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://橘子.wang/">
 
 
-<script id="page-configurations">
+<script data-pjax class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
@@ -41,61 +45,70 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>橘子的小站</title>
+<title>橘子的小站</title>
   
-
-
 
 
 
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
 <link rel="alternate" href="/atom.xml" title="橘子的小站" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">橘子的小站</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">橘子咕咕的地方</p>
   </div>
@@ -108,49 +121,16 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-笔记">
-
-    <a href="https://笔记.橘子.wang/" rel="noopener" target="_blank"><i class="fas fa-book fa-fw"></i>笔记</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-实验室">
-
-    <a href="/laboratory" rel="section"><i class="fa fa-flask fa-fw"></i>实验室</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-sitemap">
-
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
-
-  </li>
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-实验室"><a href="/laboratory" rel="section"><i class="fa fa-flask fa-fw"></i>实验室</a></li>
+        <li class="menu-item menu-item-live(beta)"><a href="/Live" rel="section"><i class="fab fa-youtube fa-fw"></i>Live(beta)</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
   </ul>
 </nav>
 
@@ -158,672 +138,18 @@
 
 
 </div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://橘子.wang/ai-beatmap-generator-train/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.png">
-      <meta itemprop="name" content="Orange">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ai-beatmap-generator-train/" class="post-title-link" itemprop="url">AI 生成音游 Malody 谱面</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-22 20:25:58" itemprop="dateCreated datePublished" datetime="2020-08-22T20:25:58+08:00">2020-08-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 22:29:02" itemprop="dateModified" datetime="2021-01-29T22:29:02+08:00">2021-01-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ai-beatmap-generator-train/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ai-beatmap-generator-train/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>前几天想玩玩 Malody ，但苦于找不到自己喜欢的曲子，于是脑子一抽，想到了万能的 AI。然后经过在网上的一阵搜索，我找到了一个<a target="_blank" rel="noopener" href="https://juejin.im/post/5e16be6c6fb9a0481a5b47ed">大佬提出的解决方案</a>。不过他只用了 24 首曲子训练了 2w 和 10w 步。为了尝试取得更好的效果，我扩大数据集到 104 首曲子，在 Kaggle 上训练了 20w 和 100w 步。效果嘛，经过我的测试，还是挺一般的（或者说根本不太好）。如果有想尝试的小伙伴照常前往<a href="/laboratory/ai-beatmap-generator/">橘子的实验室</a>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ai-beatmap-generator-train/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://橘子.wang/pv-shangxian/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.png">
-      <meta itemprop="name" content="Orange">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/pv-shangxian/" class="post-title-link" itemprop="url">【工程分享】上弦 PV</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-15 18:03:47" itemprop="dateCreated datePublished" datetime="2020-08-15T18:03:47+08:00">2020-08-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-29 22:42:48" itemprop="dateModified" datetime="2020-08-29T22:42:48+08:00">2020-08-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vocaloid/" itemprop="url" rel="index"><span itemprop="name">Vocaloid</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vocaloid/PV/" itemprop="url" rel="index"><span itemprop="name">PV</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/pv-shangxian/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/pv-shangxian/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>又是一年一度的我和<a target="_blank" rel="noopener" href="https://space.bilibili.com/30260188">仙豆围镜</a>给尘宝写生贺啦。今年的曲绘由豆亲自执笔233.</p>
-<p>能再与豆合作真是太开心了，我觉得我们每一次都有新的进步呢。</p>
-<p>按照惯例我打算把PV的工程文件放出来。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/pv-shangxian/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://橘子.wang/turn-your-photos-into-3d-video/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.png">
-      <meta itemprop="name" content="Orange">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/turn-your-photos-into-3d-video/" class="post-title-link" itemprop="url">把你的照片变成 3D 场景视频</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-13 19:39:21" itemprop="dateCreated datePublished" datetime="2020-08-13T19:39:21+08:00">2020-08-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 18:22:08" itemprop="dateModified" datetime="2021-01-29T18:22:08+08:00">2021-01-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/turn-your-photos-into-3d-video/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/turn-your-photos-into-3d-video/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近做 PV 的时候遇到了个小问题。曲绘给我的背景图是一张没有分层的图片，这样在做摄像机移动时感觉就像把图片放大缩小平移，灵魂都掉了。不过我发现了一个神奇的 AI ，可以把静止图片变成 3D 场景视频。结合 AE 的 3D 摄像机追踪就可以完美解决这个问题啦。</p>
-<p>另外如果你有什么珍藏的照片也可以放到这个 AI 上试一下，把你珍贵的瞬间变成3D视频，万一效果不错呢，反正我已经爱上这玩意了。</p>
-<p>这个项目是 <a target="_blank" rel="noopener" href="https://github.com/vt-vl-lab/3d-photo-inpainting">3D Photo Inpainting</a>。想要尝试的话照常可以去<a href="/laboratory/3d-photo-inpainting/">橘子的实验室</a>瞧瞧。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/turn-your-photos-into-3d-video/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://橘子.wang/gpt2-trial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.png">
-      <meta itemprop="name" content="Orange">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/gpt2-trial/" class="post-title-link" itemprop="url">来用 AI 写故事哇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-15 14:00:00" itemprop="dateCreated datePublished" datetime="2020-03-15T14:00:00+08:00">2020-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 18:56:40" itemprop="dateModified" datetime="2021-01-29T18:56:40+08:00">2021-01-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/gpt2-trial/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/gpt2-trial/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近在玩 OpenAI 的 <a target="_blank" rel="noopener" href="https://openai.com/blog/better-language-models/">GPT-2</a>。它是一种大型的基于 Transformer 的语言模型。OpenAI使用 15 亿参数和 800 万篇网络文本对其进行训练。训练后可以“ 根据文本中的所有先前单词，预测下一个单词”。它通过提示的小段文字来续写大段连贯文本。OpenAI 认为它生成的文本具有足够的欺骗性，可以“以假乱真”，以担心滥用为由迟迟不肯放出全部代码和模型，气得网友嘲讽其为 CloseAI 。</p>
-<p>(2020.6.25 更新，OpenAI 的 15 亿参数模型已放出，已经在橘子的实验室整理为 Colab 笔记本。)</p>
-<p>不过，目前 OpenAI 还是放出了部分代码和 7.74 亿参数的较小预训练模型。也有各路大佬复刻了 15 亿参数的<a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1esbpDOorf7DQJV8GXWON24c-EQrSKOit">OpenGPT-2</a>，以及支持中文的 <a target="_blank" rel="noopener" href="https://github.com/Morizeyao/GPT2-Chinese">GPT2-Chinese</a>、带有15亿参数中文预训练模型的 <a target="_blank" rel="noopener" href="https://github.com/imcaspar/gpt2-ml">GPT2-ml</a>。虽然效果或许没有 OpenAI 的 15 亿参数模型好，但也够我们玩一会了。想体验的可前往 <a href="/laboratory/gpt-2">橘子的实验室</a>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/gpt2-trial/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://橘子.wang/google-colab-tutorial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.png">
-      <meta itemprop="name" content="Orange">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/google-colab-tutorial/" class="post-title-link" itemprop="url">Google Colab 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-15 08:13:12" itemprop="dateCreated datePublished" datetime="2020-03-15T08:13:12+08:00">2020-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 18:26:59" itemprop="dateModified" datetime="2021-01-29T18:26:59+08:00">2021-01-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/google-colab-tutorial/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/google-colab-tutorial/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Google Colab 是 Google 的一项免费服务。借助 Colab ，我们可以在浏览器中编写和运行 Jupyter Notebook ，并使用云端计算资源。（Colab免费提供 Tesla T4 ，甚至还有 TPU 哇！）</p>
-<p>要继续，请确认你可以正确访问Google。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/google-colab-tutorial/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://橘子.wang/pv-zuishixian/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.png">
-      <meta itemprop="name" content="Orange">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="橘子的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/pv-zuishixian/" class="post-title-link" itemprop="url">【工程分享】醉诗仙 PV</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-20 09:00:47" itemprop="dateCreated datePublished" datetime="2019-10-20T09:00:47+08:00">2019-10-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-29 22:42:41" itemprop="dateModified" datetime="2020-08-29T22:42:41+08:00">2020-08-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vocaloid/" itemprop="url" rel="index"><span itemprop="name">Vocaloid</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vocaloid/PV/" itemprop="url" rel="index"><span itemprop="name">PV</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/pv-zuishixian/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/pv-zuishixian/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这是暑假的时候<a target="_blank" rel="noopener" href="https://space.bilibili.com/30260188">仙豆围</a><a target="_blank" rel="noopener" href="https://space.bilibili.com/30260188">鏡</a>、Noah-nono 和我一起做的，写给尘宝的生贺~</p>
-<p>调教是仙豆围鏡，曲绘是 Noah-nono，我做了 PV~</p>
-<p>经常看到编程开源的，调教放有参工程的，但似乎很少看到 PV 放工程文件的。</p>
-<p>现在我就在这里分享一下工程文件吧，授权见文章末尾。</p>
-<p>PV工程文件版本为 AE CC 2019，使用了一些常用插件如红巨星的 Particular。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/pv-zuishixian/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -832,19 +158,20 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Orange"
       src="/images/logo.png">
   <p class="site-author-name" itemprop="name">Orange</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -867,7 +194,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/orange1423" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;orange1423" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -883,8 +210,8 @@
   </div>
 
 
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
@@ -918,24 +245,618 @@
     </ul>
   </div>
 
+        </div>
       </div>
-
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-dimmer"></div>
 
 
-      </div>
-    </main>
+    </header>
 
-    <footer class="footer">
-      <div class="footer-inner">
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://橘子.wang/ai-beatmap-generator-train/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.png">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/ai-beatmap-generator-train/" class="post-title-link" itemprop="url">AI 生成音游 Malody 谱面</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-22 20:25:58" itemprop="dateCreated datePublished" datetime="2020-08-22T20:25:58+08:00">2020-08-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-29 22:29:02" itemprop="dateModified" datetime="2021-01-29T22:29:02+08:00">2021-01-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>前几天想玩玩 Malody ，但苦于找不到自己喜欢的曲子，于是脑子一抽，想到了万能的 AI。然后经过在网上的一阵搜索，我找到了一个<a target="_blank" rel="noopener" href="https://juejin.im/post/5e16be6c6fb9a0481a5b47ed">大佬提出的解决方案</a>。不过他只用了 24 首曲子训练了 2w 和 10w 步。为了尝试取得更好的效果，我扩大数据集到 104 首曲子，在 Kaggle 上训练了 20w 和 100w 步。效果嘛，经过我的测试，还是挺一般的（或者说根本不太好）。如果有想尝试的小伙伴照常前往<a href="/laboratory/ai-beatmap-generator/">橘子的实验室</a>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ai-beatmap-generator-train/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
+      
+    </div>
 
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://橘子.wang/pv-shangxian/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.png">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/pv-shangxian/" class="post-title-link" itemprop="url">【工程分享】上弦 PV</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-15 18:03:47" itemprop="dateCreated datePublished" datetime="2020-08-15T18:03:47+08:00">2020-08-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-08-29 22:42:48" itemprop="dateModified" datetime="2020-08-29T22:42:48+08:00">2020-08-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Vocaloid/" itemprop="url" rel="index"><span itemprop="name">Vocaloid</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Vocaloid/PV/" itemprop="url" rel="index"><span itemprop="name">PV</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>又是一年一度的我和<a target="_blank" rel="noopener" href="https://space.bilibili.com/30260188">仙豆围镜</a>给尘宝写生贺啦。今年的曲绘由豆亲自执笔233.</p>
+<p>能再与豆合作真是太开心了，我觉得我们每一次都有新的进步呢。</p>
+<p>按照惯例我打算把PV的工程文件放出来。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/pv-shangxian/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://橘子.wang/turn-your-photos-into-3d-video/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.png">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/turn-your-photos-into-3d-video/" class="post-title-link" itemprop="url">把你的照片变成 3D 场景视频</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-13 19:39:21" itemprop="dateCreated datePublished" datetime="2020-08-13T19:39:21+08:00">2020-08-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-29 18:22:08" itemprop="dateModified" datetime="2021-01-29T18:22:08+08:00">2021-01-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近做 PV 的时候遇到了个小问题。曲绘给我的背景图是一张没有分层的图片，这样在做摄像机移动时感觉就像把图片放大缩小平移，灵魂都掉了。不过我发现了一个神奇的 AI ，可以把静止图片变成 3D 场景视频。结合 AE 的 3D 摄像机追踪就可以完美解决这个问题啦。</p>
+<p>另外如果你有什么珍藏的照片也可以放到这个 AI 上试一下，把你珍贵的瞬间变成3D视频，万一效果不错呢，反正我已经爱上这玩意了。</p>
+<p>这个项目是 <a target="_blank" rel="noopener" href="https://github.com/vt-vl-lab/3d-photo-inpainting">3D Photo Inpainting</a>。想要尝试的话照常可以去<a href="/laboratory/3d-photo-inpainting/">橘子的实验室</a>瞧瞧。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/turn-your-photos-into-3d-video/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://橘子.wang/gpt2-trial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.png">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/gpt2-trial/" class="post-title-link" itemprop="url">来用 AI 写故事哇</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-15 14:00:00" itemprop="dateCreated datePublished" datetime="2020-03-15T14:00:00+08:00">2020-03-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-29 18:56:40" itemprop="dateModified" datetime="2021-01-29T18:56:40+08:00">2021-01-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近在玩 OpenAI 的 <a target="_blank" rel="noopener" href="https://openai.com/blog/better-language-models/">GPT-2</a>。它是一种大型的基于 Transformer 的语言模型。OpenAI使用 15 亿参数和 800 万篇网络文本对其进行训练。训练后可以“ 根据文本中的所有先前单词，预测下一个单词”。它通过提示的小段文字来续写大段连贯文本。OpenAI 认为它生成的文本具有足够的欺骗性，可以“以假乱真”，以担心滥用为由迟迟不肯放出全部代码和模型，气得网友嘲讽其为 CloseAI 。</p>
+<p>(2020.6.25 更新，OpenAI 的 15 亿参数模型已放出，已经在橘子的实验室整理为 Colab 笔记本。)</p>
+<p>不过，目前 OpenAI 还是放出了部分代码和 7.74 亿参数的较小预训练模型。也有各路大佬复刻了 15 亿参数的<a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1esbpDOorf7DQJV8GXWON24c-EQrSKOit">OpenGPT-2</a>，以及支持中文的 <a target="_blank" rel="noopener" href="https://github.com/Morizeyao/GPT2-Chinese">GPT2-Chinese</a>、带有15亿参数中文预训练模型的 <a target="_blank" rel="noopener" href="https://github.com/imcaspar/gpt2-ml">GPT2-ml</a>。虽然效果或许没有 OpenAI 的 15 亿参数模型好，但也够我们玩一会了。想体验的可前往 <a href="/laboratory/gpt-2">橘子的实验室</a>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/gpt2-trial/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://橘子.wang/google-colab-tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.png">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/google-colab-tutorial/" class="post-title-link" itemprop="url">Google Colab 使用教程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-15 08:13:12" itemprop="dateCreated datePublished" datetime="2020-03-15T08:13:12+08:00">2020-03-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-29 18:26:59" itemprop="dateModified" datetime="2021-01-29T18:26:59+08:00">2021-01-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">信息技术</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Google Colab 是 Google 的一项免费服务。借助 Colab ，我们可以在浏览器中编写和运行 Jupyter Notebook ，并使用云端计算资源。（Colab免费提供 Tesla T4 ，甚至还有 TPU 哇！）</p>
+<p>要继续，请确认你可以正确访问Google。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/google-colab-tutorial/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://橘子.wang/pv-zuishixian/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.png">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/pv-zuishixian/" class="post-title-link" itemprop="url">【工程分享】醉诗仙 PV</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-20 09:00:47" itemprop="dateCreated datePublished" datetime="2019-10-20T09:00:47+08:00">2019-10-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-08-29 22:42:41" itemprop="dateModified" datetime="2020-08-29T22:42:41+08:00">2020-08-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Vocaloid/" itemprop="url" rel="index"><span itemprop="name">Vocaloid</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Vocaloid/PV/" itemprop="url" rel="index"><span itemprop="name">PV</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这是暑假的时候<a target="_blank" rel="noopener" href="https://space.bilibili.com/30260188">仙豆围</a><a target="_blank" rel="noopener" href="https://space.bilibili.com/30260188">鏡</a>、Noah-nono 和我一起做的，写给尘宝的生贺~</p>
+<p>调教是仙豆围鏡，曲绘是 Noah-nono，我做了 PV~</p>
+<p>经常看到编程开源的，调教放有参工程的，但似乎很少看到 PV 放工程文件的。</p>
+<p>现在我就在这里分享一下工程文件吧，授权见文章末尾。</p>
+<p>PV工程文件版本为 AE CC 2019，使用了一些常用插件如红巨星的 Particular。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/pv-zuishixian/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
@@ -943,88 +864,35 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Orange</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
-  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/pjax/pjax.min.js"></script>
   <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/jquery/jquery.min.js"></script>
-  <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/fancybox/jquery.fancybox.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-<script src="/js/bookmark.js"></script>
-
-  <script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
-    '#page-configurations',
-    '.content-wrap',
+    '.page-configurations',
+    '.main-inner',
     '.post-toc-wrap',
     '.languages',
-    '#pjax'
+    '.pjax'
   ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
   analytics: false,
   cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
 });
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
   NexT.boot.refresh();
   // Define Motion Sequence & Bootstrap Motion.
   if (CONFIG.motion.enable) {
@@ -1034,11 +902,12 @@ window.addEventListener('pjax:success', () => {
       .add(NexT.motion.middleWares.postList)
       .bootstrap();
   }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
   NexT.utils.updateSidebarPosition();
 });
 </script>
-
-
 
 
   
@@ -1048,22 +917,21 @@ window.addEventListener('pjax:success', () => {
 
 
 
+  
 
 
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/gh/orange1423/Mypage@master/tools/live2d-widget/autoload.js"></script>
-<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/hls/hls.min.js"></script>
-<!-- require APlayer -->
-<link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.css">
-<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.js"></script>
-<!-- require MetingJS -->
-<script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/meting/Meting.min.js"></script>
-
+<div id="myscript">
+    <script src="https://cdn.jsdelivr.net/gh/orange1423/Mypage@master/tools/live2d-widget/autoload.js"></script>
+    <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/hls/hls.min.js"></script>
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.css">
+    <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/aplayer/APlayer.min.js"></script>
+    <!-- require MetingJS -->
+    <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/meting/Meting.min.js"></script>
+    <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/leancloud-realtime/im-browser.min.js"></script>
+    <script src="https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/n/N.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@^4/dist/av-min.js"></script>
+</div>
 <meting-js
 	server="netease"
 	type="playlist"
@@ -1074,49 +942,23 @@ window.addEventListener('pjax:success', () => {
 </meting-js>
 
 <script type="text/javascript">
-    $(document).on('pjax:complete', function(){
+    $(document).on("pjax:complete",function(){
         if(Hls.isSupported()) {
             $(".hlsvideo").each(function(){
-                var hls = new Hls();
-                hls.loadSource($(this).attr("src"));
-                hls.attachMedia(this);
+                if(!$(this).attr("src").startsWith("blob")){
+                    var hls = new Hls();
+                    hls.loadSource($(this).attr("src"));
+                    hls.attachMedia(this);
+                }
             });
+        }
+        if($("#danmu").length > 0 && $("#danmuscript").length == 0 ) {
+            $("#myscript").append(`<script id="danmuscript" src="/lib/danmu/realtimedanmu.js"><\/script>`);
         }
     });
 </script>
-    <div id="pjax">
-  
+    <div class="pjax">
 
-  
-
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('https://cdn-1252237565.cos.ap-guangzhou.myqcloud.com/lib/valine/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : false,
-      appId      : 'QdSP5lH9RQqp0OWKNqls0BUH-gzGzoHsz',
-      appKey     : '9TCDJt1nsDUWkMhSFH590v02',
-      placeholder: "ヾ(≧▽≦*)o",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : 'https://qdsp5lh9.lc-cn-n1-shared.com'
-    });
-  }, window.Valine);
-});
-</script>
 
     </div>
 </body>
