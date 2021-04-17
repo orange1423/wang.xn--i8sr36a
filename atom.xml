@@ -6,7 +6,7 @@
   <link href="https://橘子.wang/atom.xml" rel="self"/>
   
   <link href="https://橘子.wang/"/>
-  <updated>2021-04-05T03:27:17.642Z</updated>
+  <updated>2021-04-17T09:03:31.472Z</updated>
   <id>https://橘子.wang/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>来制作属于你的二次元头像吧</title>
+    <link href="https://橘子.wang/sytleGAN2-waifu/"/>
+    <id>https://橘子.wang/sytleGAN2-waifu/</id>
+    <published>2021-04-17T02:00:00.000Z</published>
+    <updated>2021-04-17T09:03:31.472Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在玩 SytleGAN2，看到有大佬训练了二次元人物头像的模型，于是快乐地玩了起来wwww妈妈再也不用担心我没有头像了！</p><span id="more"></span><p>StyleGAN2 是 NVIDIA 研发的图像生成 AI。 NVIDIA 在自己的项目中使用人脸图像对其进行训练，在原项目中可以生成令人难以分辨的人脸照片。</p><p>于是热爱二次元的大佬们又在二次元人物脸上进行了训练，效果不错。可以生成能看的 Waifu 头像了。后来也有人做过整幅插画上进行训练的，但效果不佳。（什么手指画多了，脖子歪了之类的怪吓人的。）</p><h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/sytleGAN2-waifu/example.png"></p><p>以上是橘子生成的结果，还是能看的对吧…..在面部的主体部分瑕疵比较少，但饰品和肩膀的位置 Bug 就比较多。这是因为训练数据中脸部总是有的，但饰品不是一定的，AI 见得比较少。</p><h2 id="尝试一下"><a href="#尝试一下" class="headerlink" title="尝试一下"></a>尝试一下</h2><p>欢迎有兴趣的小伙伴前往<a href="/laboratory/sytlegan2/">橘子的实验室</a>进行尝试哦！</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;最近在玩 SytleGAN2，看到有大佬训练了二次元人物头像的模型，于是快乐地玩了起来wwww妈妈再也不用担心我没有头像了！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="信息技术" scheme="https://橘子.wang/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="AI" scheme="https://橘子.wang/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/"/>
+    
+    
+    <category term="AI技术" scheme="https://橘子.wang/tags/AI%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>无题</title>
@@ -38,29 +61,6 @@
     <category term="随笔" scheme="https://橘子.wang/tags/%E9%9A%8F%E7%AC%94/"/>
     
     <category term="诗歌" scheme="https://橘子.wang/tags/%E8%AF%97%E6%AD%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>来制作属于你的二次元头像吧</title>
-    <link href="https://橘子.wang/sytleGAN2-waifu/"/>
-    <id>https://橘子.wang/sytleGAN2-waifu/</id>
-    <published>2021-03-14T02:00:00.000Z</published>
-    <updated>2021-04-05T04:48:00.338Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近在玩 SytleGAN2，看到有大佬训练了二次元人物头像的模型，于是快乐地玩了起来wwww妈妈再也不用担心我没有头像了！</p><span id="more"></span><p>StyleGAN2 是 NVIDIA 研发的图像生成 AI。 NVIDIA 在自己的项目中使用人脸图像对其进行训练，在原项目中可以生成令人难以分辨的人脸照片。</p><p>于是热爱二次元的大佬们又在二次元人物脸上进行了训练，效果不错。可以生成能看的 Waifu 头像了。后来也有人做过整幅插画上进行训练的，但效果不佳。（什么手指画多了，脖子歪了之类的怪吓人的。）</p><h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><p><img src="https://cdn.jsdelivr.net/gh/orange1423/wang.xn--i8sr36a@master/sytleGAN2-waifu/example.png"></p><p>以上是橘子生成的结果，还是能看的对吧…..在面部的主体部分瑕疵比较少，但饰品和肩膀的位置 Bug 就比较多。这是因为训练数据中脸部总是有的，但饰品不是一定的，AI 见得比较少。</p><h2 id="尝试一下"><a href="#尝试一下" class="headerlink" title="尝试一下"></a>尝试一下</h2><p>欢迎有兴趣的小伙伴前往<a href="/laboratory/sytlegan2/">橘子的实验室</a>进行尝试哦！</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;最近在玩 SytleGAN2，看到有大佬训练了二次元人物头像的模型，于是快乐地玩了起来wwww妈妈再也不用担心我没有头像了！&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="信息技术" scheme="https://橘子.wang/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="AI" scheme="https://橘子.wang/categories/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/AI/"/>
-    
-    
-    <category term="AI技术" scheme="https://橘子.wang/tags/AI%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -94,9 +94,9 @@
     <link href="https://橘子.wang/untitled-01/"/>
     <id>https://橘子.wang/untitled-01/</id>
     <published>2020-12-25T02:00:00.000Z</published>
-    <updated>2021-04-05T03:26:57.276Z</updated>
+    <updated>2021-04-17T09:02:22.083Z</updated>
     
-    <content type="html"><![CDATA[<p>跟随你的身影，<br>我闯入一片花林。<br>林中繁花令我痴迷。</p><span id="more"></span><p>花影摇曳，<br>摇醉我的心情。<br>草色雨滴，<br>滴湿我的脚印。</p><p>我沉迷与花的美丽，<br>却遗落了你的足迹。<br>待我向前望去，<br>你已不见踪影。</p><p>我应该奔跑着寻找你，<br>我应该哭着喊你的名字。<br>可是我仍站在原地。</p><p>或许你已离我而去，<br>我们不会再相遇。<br>或许你已不再美丽，<br>比不上花朵与繁星。<br>那就请留我一人，<br>独自欣赏这夏夜的流萤。</p><p>可当我转身欲离去，<br>却见你仍站在这里。<br>你笑着走进，<br>带着一如昨日的美丽。</p><p>我无言，挥手，伫立。</p><p>多么希望再一次拥抱你，<br>我将不再忘记，<br>我们来自哪里。</p>]]></content>
+    <content type="html"><![CDATA[<p>跟随你的身影，<br>我闯入一片花林。<br>林中繁花令我痴迷。</p><span id="more"></span><p>花影摇曳，<br>摇醉我的心情。<br>草色欲滴，<br>滴湿我的脚印。</p><p>我沉迷于花的美丽，<br>却遗落了你的足迹。<br>待我向前望去，<br>你已不见踪影。</p><p>我应该奔跑着寻找你，<br>我应该哭着喊你的名字。<br>可是我仍站在原地。</p><p>或许你已离我而去，<br>我们不会再相遇。<br>或许你已不再美丽，<br>比不上花朵与繁星。<br>那就请留我一人，<br>独自欣赏这夏夜的流萤。</p><p>可当我转身欲离去，<br>却见你仍站在这里。<br>你笑着走近，<br>带着一如昨日的美丽。</p><p>我无言，挥手，伫立。</p><p>多么希望再一次拥抱你，<br>我将不再忘记，<br>我们来自哪里。</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;跟随你的身影，&lt;br&gt;我闯入一片花林。&lt;br&gt;林中繁花令我痴迷。&lt;/p&gt;</summary>
